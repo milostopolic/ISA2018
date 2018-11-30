@@ -8,5 +8,6 @@ public class IsaApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(IsaApplication.class, args);
+		System.Out.Println("aloooo");
 	}
 }
