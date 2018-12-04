@@ -2,11 +2,14 @@ package rs.ftn.isa.model;
 
 import java.util.List;
 
+import javax.persistence.CollectionTable;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Airline {
@@ -23,6 +26,13 @@ public class Airline {
 	
 	@Column(nullable = false)
 	private String description;
+	
+	@ElementCollection
+	@CollectionTable(name="destinations")
+	private List<String> destinations;
+	
+	@OneToMany(mappedBy = "airline")
+	private List<Flight> flights;
 
 	public Airline(Long id, String name, String address, String description) {
 		super();

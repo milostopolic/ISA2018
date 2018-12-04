@@ -1,2 +1,1 @@
-insert into user (name) values ("Pera"); 
-insert into user (name) values ("Mika"); 
+insert into user values (1, "Pera", "Peric", "asds@gmail.com", "pass", "novi asd", "0213231", false); 

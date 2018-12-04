@@ -1,10 +1,13 @@
 package rs.ftn.isa.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class RentACar {
@@ -21,6 +24,9 @@ public class RentACar {
 	
 	@Column(nullable = false)	
 	private String description;
+	
+	@OneToMany(mappedBy = "headOffice")
+	private List<BranchOffice> branches;
 
 	public RentACar(Long id, String name, String address, String description) {
 		super();
