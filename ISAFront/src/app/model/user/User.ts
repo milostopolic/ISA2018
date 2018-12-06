@@ -5,6 +5,6 @@ export class User {
     name: string;
     surname: string;
     city: string;
-    phone: string;
+    phoneNmbr: string;
     verified: boolean; 
   }
