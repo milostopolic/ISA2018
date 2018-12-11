@@ -1,5 +1,7 @@
 package rs.ftn.isa.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,11 @@ public class UserServiceImpl implements UserService{
 	public User getOne(Long id) {
 		// TODO Auto-generated method stub
 		return userRepository.getOne(id);
+	}
+	
+	@Override
+	public List<User> getAll(){
+		return userRepository.findAll();		
 	}
 
 	

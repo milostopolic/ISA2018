@@ -1,5 +1,7 @@
 package rs.ftn.isa.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,6 +33,14 @@ public class UserController {
 		if(user != null) {
 			UserDTO userDTO = new UserDTO(user);
 			return new ResponseEntity<UserDTO>(userDTO,HttpStatus.OK);
+		}
+		return null;
+	}
+	
+	public ResponseEntity<List<User>> getAll() {
+		List<User> users = userService.getAll();
+		if(users != null) {
+			return new ResponseEntity<List<User>>(users, HttpStatus.OK);
 		}
 		return null;
 	}
