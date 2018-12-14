@@ -7,5 +7,6 @@ public interface HotelService {
 
 	Hotel getOne(Long id);
 	List<Hotel> getAll();
+	Hotel save(Hotel hotel);
 	
 }

@@ -26,4 +26,10 @@ public class AirlineServiceImpl implements AirlineService {
 		return airlineRepository.findAll();
 	}
 
+	@Override
+	public Airline save(Airline airline) {
+		// TODO Auto-generated method stub
+		return airlineRepository.save(airline);
+	}
+
 }

@@ -23,5 +23,11 @@ public class HotelServiceImpl implements HotelService {
 	public List<Hotel> getAll() {
 		return hotelRepository.findAll();
 	}
+
+	@Override
+	public Hotel save(Hotel hotel) {
+		// TODO Auto-generated method stub
+		return hotelRepository.save(hotel);
+	}
 	
 }

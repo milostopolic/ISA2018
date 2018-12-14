@@ -38,6 +38,7 @@ public class UserController {
 		return null;
 	}
 	
+	@RequestMapping("/all")
 	public ResponseEntity<List<UserDTO>> getAll() {
 		List<User> users = userService.getAll();
 		if(users != null) {
