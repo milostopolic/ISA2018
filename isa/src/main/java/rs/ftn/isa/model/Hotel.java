@@ -20,14 +20,14 @@ public class Hotel {
 	private String address;
 	
 	@Column(nullable = false)	
-	private String desciption;
+	private String description;
 
 	public Hotel(Long id, String name, String address, String desciption) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.address = address;
-		this.desciption = desciption;
+		this.description = desciption;
 	}
 
 	public Hotel() {
@@ -59,11 +59,11 @@ public class Hotel {
 	}
 
 	public String getDesciption() {
-		return desciption;
+		return description;
 	}
 
 	public void setDesciption(String desciption) {
-		this.desciption = desciption;
+		this.description = desciption;
 	}
 	
 	

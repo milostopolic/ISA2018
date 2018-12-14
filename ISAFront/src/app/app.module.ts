@@ -9,9 +9,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProfileNavComponent } from './profile/profile-nav/profile-nav.component';
 import { ProfileEditComponent } from './profile/profile-edit/profile-edit.component';
 import { ProfileFriendsComponent } from './profile/profile-friends/profile-friends.component';
+import { NavbarComponent } from './homepage/navbar/navbar.component';
+import { IndexComponent } from './homepage/index/index.component';
+import { CardsComponent } from './homepage/cards/cards.component';
+import { HotelService } from './services/hotel/hotel.service';
 
 const appRoutes: Routes = [
   { path: 'profile/:id', component: ProfileComponent },
+  { path: 'home', component: IndexComponent },
 ];
 
 @NgModule({
@@ -21,6 +26,9 @@ const appRoutes: Routes = [
     ProfileNavComponent,
     ProfileEditComponent,
     ProfileFriendsComponent,
+    NavbarComponent,
+    IndexComponent,
+    CardsComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,7 +38,7 @@ const appRoutes: Routes = [
       { enableTracing: true }
     )
   ],
-  providers: [ProfileService],
+  providers: [ProfileService, HotelService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,6 @@
 package rs.ftn.isa.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,10 +38,14 @@ public class UserController {
 		return null;
 	}
 	
-	public ResponseEntity<List<User>> getAll() {
+	public ResponseEntity<List<UserDTO>> getAll() {
 		List<User> users = userService.getAll();
 		if(users != null) {
-			return new ResponseEntity<List<User>>(users, HttpStatus.OK);
+			List<UserDTO> usersDTO = new ArrayList<UserDTO>();
+			for(User u : users) {
+				usersDTO.add(new UserDTO(u));
+			}
+			return new ResponseEntity<List<UserDTO>>(usersDTO, HttpStatus.OK);
 		}
 		return null;
 	}

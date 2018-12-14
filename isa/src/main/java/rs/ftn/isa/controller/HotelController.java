@@ -30,6 +30,7 @@ public class HotelController {
 		return null;
 	} 
 	
+	@RequestMapping("/all")
 	public ResponseEntity<List<Hotel>> getAll() {
 		List<Hotel> hotels = hotelService.getAll();
 		if(hotels != null) {
