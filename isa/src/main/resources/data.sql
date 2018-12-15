@@ -2,4 +2,6 @@ insert into user(id,name,surname,email,password,address,phone_nmbr,verified) val
 insert into user(id,name,surname,email,password,address,phone_nmbr,verified) values (2, "Mika", "Peric", "asds@gmail.com", "pass", "novi asd", "0213231", false); 
 insert into user(id,name,surname,email,password,address,phone_nmbr,verified) values (3, "Zika", "Peric", "asds@gmail.com", "pass", "novi asd", "0213231", false); 
 insert into user(id,name,surname,email,password,address,phone_nmbr,verified) values (4, "Pare", "Peric", "asds@gmail.com", "pass", "novi asd", "0213231", false);
-insert into hotel(id,name,address,description) values (1, "Palisad", "Zlatibro", "Lep hotel");  
+insert into hotel(id,name,address,description) values (1, "Palisad", "Zlatibro", "Lep hotel");
+insert into hotel(id,name,address,description) values (2, "Park", "Novi Sad", "Sajmiste");  
+insert into hotel(id,name,address,description) values (3, "Putnik", "Novi Sad", "U centru");    

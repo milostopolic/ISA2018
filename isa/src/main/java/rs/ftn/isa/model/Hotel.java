@@ -1,10 +1,13 @@
 package rs.ftn.isa.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Hotel {
@@ -21,6 +24,9 @@ public class Hotel {
 	
 	@Column(nullable = false)	
 	private String description;
+	
+	@OneToMany(mappedBy = "hotel")
+	private List<Room> rooms;
 
 	public Hotel(Long id, String name, String address, String desciption) {
 		super();
