@@ -25,15 +25,19 @@ public class Hotel {
 	@Column(nullable = false)	
 	private String description;
 	
+	@Column(nullable = false)	
+	private String image;
+	
 	@OneToMany(mappedBy = "hotel")
 	private List<Room> rooms;
 
-	public Hotel(Long id, String name, String address, String desciption) {
+	public Hotel(Long id, String name, String address, String description, String image) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.address = address;
-		this.description = desciption;
+		this.description = description;
+		this.image = image;
 	}
 
 	public Hotel() {
@@ -64,12 +68,28 @@ public class Hotel {
 		this.address = address;
 	}
 
-	public String getDesciption() {
+	public String getDescription() {
 		return description;
 	}
 
-	public void setDesciption(String desciption) {
-		this.description = desciption;
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	public List<Room> getRooms() {
+		return rooms;
+	}
+
+	public void setRooms(List<Room> rooms) {
+		this.rooms = rooms;
 	}
 	
 	

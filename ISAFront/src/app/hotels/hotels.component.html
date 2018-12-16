@@ -1,3 +1,18 @@
-<p>
-  hotels works!
-</p>
+<mat-card *ngFor="let hotel of hotels" class="example-card" style="margin-top:30px;margin-bottom:30px">
+    <mat-card-header>        
+      <mat-card-title style="margin-top:5px">{{ hotel.name }}</mat-card-title>        
+    </mat-card-header>
+    <img style="margin-top:10px" mat-card-image src="{{ hotel.image }}" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+      <p>
+        <i>Name</i>: {{ hotel.name }}
+        <br>
+        <i>Address</i>: {{ hotel.address }}
+        <br>
+        <i>Description</i>: {{ hotel.description }}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" [routerLink]="[hotel.id]">ENTER</button>        
+    </mat-card-actions>
+  </mat-card>

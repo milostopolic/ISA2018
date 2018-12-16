@@ -34,12 +34,17 @@ public class Airline {
 	@OneToMany(mappedBy = "airline")
 	private List<Flight> flights;
 
-	public Airline(Long id, String name, String address, String description) {
+	
+
+	public Airline(Long id, String name, String address, String description, List<String> destinations,
+			List<Flight> flights) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.address = address;
 		this.description = description;
+		this.destinations = destinations;
+		this.flights = flights;
 	}
 
 	public Airline() {
@@ -76,6 +81,22 @@ public class Airline {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public List<String> getDestinations() {
+		return destinations;
+	}
+
+	public void setDestinations(List<String> destinations) {
+		this.destinations = destinations;
+	}
+
+	public List<Flight> getFlights() {
+		return flights;
+	}
+
+	public void setFlights(List<Flight> flights) {
+		this.flights = flights;
 	}
 	
 	

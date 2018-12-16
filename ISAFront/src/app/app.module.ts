@@ -16,12 +16,14 @@ import { HotelService } from './services/hotel/hotel.service';
 import { HomepageComponent } from './homepage/homepage.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HotelsComponent } from './hotels/hotels.component';
+import { HotelComponent } from './hotel/hotel.component';
 
 const appRoutes: Routes = [
   { path: 'profile/:id', component: ProfileComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomepageComponent },
-  { path: 'hotels', component: HotelsComponent }
+  { path: 'hotels', component: HotelsComponent },
+  { path: 'hotels/:id', component: HotelComponent }
 ];
 
 @NgModule({
@@ -33,7 +35,8 @@ const appRoutes: Routes = [
     ProfileFriendsComponent,
     HomepageComponent,
     NavbarComponent,
-    HotelsComponent    
+    HotelsComponent,
+    HotelComponent    
   ],
   imports: [
     BrowserModule,

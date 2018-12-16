@@ -10,6 +10,6 @@ export class ProfileService {
 
   constructor(private http:HttpClient) { }
   getUserById(id):Observable<any>{
-    return this.http.get("http://localhost:1234/api/users/" + id);
+    return this.http.get("http://localhost:8080/api/users/" + id);
   }
 }

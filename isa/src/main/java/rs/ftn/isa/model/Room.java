@@ -1,5 +1,6 @@
 package rs.ftn.isa.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,8 +14,10 @@ public class Room {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@Column(nullable = false)
 	private int beds;
 	
+	@Column(nullable = false)
 	private float price;
 	
 	@ManyToOne

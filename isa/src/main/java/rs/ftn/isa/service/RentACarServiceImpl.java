@@ -3,10 +3,12 @@ package rs.ftn.isa.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import rs.ftn.isa.model.RentACar;
 import rs.ftn.isa.repository.RentACarRepository;
 
+@Service	
 public class RentACarServiceImpl implements RentACarService {
 
 	@Autowired

@@ -23,6 +23,12 @@ public class Flight {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@Column
+	private String departurePlace;
+	
+	@Column
+	private String destination;
+	
 	@Temporal(TemporalType.DATE)	// MOZDA CE SE MENJATI U CALENDAR
 	private Date takeOffDate;
 	
@@ -45,10 +51,15 @@ public class Flight {
 	@ManyToOne
 	private Airline airline;
 	
-	public Flight(Long id, Date takeOffDate, Date takeOffTime, Date landDate, Date landTime, float distance,
+	@Column
+	private float price;
+	
+	public Flight(Long id,String departurePlace, String destination, Date takeOffDate, Date takeOffTime, Date landDate, Date landTime, float distance,
 			List<String> stops, Airline airline, float price) {
 		super();
 		this.id = id;
+		this.departurePlace = departurePlace;
+		this.destination = destination;
 		this.takeOffDate = takeOffDate;
 		this.takeOffTime = takeOffTime;
 		this.landDate = landDate;
@@ -59,8 +70,7 @@ public class Flight {
 		this.price = price;
 	}
 
-	@Column
-	private float price;
+	
 
 	
 
@@ -138,6 +148,38 @@ public class Flight {
 
 	public void setAirline(Airline airline) {
 		this.airline = airline;
+	}
+
+
+
+
+
+	public String getDeparturePlace() {
+		return departurePlace;
+	}
+
+
+
+
+
+	public void setDeparturePlace(String departurePlace) {
+		this.departurePlace = departurePlace;
+	}
+
+
+
+
+
+	public String getDestination() {
+		return destination;
+	}
+
+
+
+
+
+	public void setDestination(String destination) {
+		this.destination = destination;
 	}
 	
 }
