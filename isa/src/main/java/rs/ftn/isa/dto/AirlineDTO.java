@@ -20,8 +20,10 @@ public class AirlineDTO {
 	
 	private List<FlightDTO> flightsDTO;	
 	
+	private String image;
+	
 	public AirlineDTO(Long id, String name, String address, String description, List<String> destionations,
-			List<FlightDTO> flightsDTO) {
+			List<FlightDTO> flightsDTO, String image) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -29,19 +31,23 @@ public class AirlineDTO {
 		this.description = description;
 		this.destionations = destionations;
 		this.flightsDTO = flightsDTO;
+		this.image = image;
 	}
 
 	public AirlineDTO(Airline airline) {
 		List<FlightDTO> flightsDTO = new ArrayList<>();
+		System.out.println("prvi");
 		for(Flight f : airline.getFlights()) {
 			flightsDTO.add(new FlightDTO(f));
 		}
+		System.out.println("drugi");
 		this.id = airline.getId();
 		this.name = airline.getName();
 		this.address = airline.getAddress();
 		this.description = airline.getDescription();
 		this.destionations = airline.getDestinations();
 		this.flightsDTO = flightsDTO;
+		this.image = airline.getImage();
 	}
 
 	public AirlineDTO() {
@@ -70,6 +76,38 @@ public class AirlineDTO {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public List<String> getDestionations() {
+		return destionations;
+	}
+
+	public void setDestionations(List<String> destionations) {
+		this.destionations = destionations;
+	}
+
+	public List<FlightDTO> getFlightsDTO() {
+		return flightsDTO;
+	}
+
+	public void setFlightsDTO(List<FlightDTO> flightsDTO) {
+		this.flightsDTO = flightsDTO;
 	}
 	
 	

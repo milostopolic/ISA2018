@@ -11,11 +11,11 @@ insert into room(id, beds, price, hotel_id) values (1, 2, 40, 1);
 insert into room(id, beds, price, hotel_id) values (2, 3, 54, 1);
 insert into room(id, beds, price, hotel_id) values (3, 4, 67, 1);
 
-insert into airline(id, name, address, description) values (1, "Air Srbija", "Beograd", "Serbian airline");
+insert into airline(id, name, address, description, image) values (1, "Air Srbija", "Beograd", "Serbian airline", "../../assets/img/airserbia.jpg");
 insert into destinations(airline_id, destinations) values (1, "London");
 insert into destinations(airline_id, destinations) values (1, "Madrid");
 insert into destinations(airline_id, destinations) values (1, "Berlin");
-insert into airline(id, name, address, description) values (2, "Emirates", "Dubai", "UAE");
+insert into airline(id, name, address, description, image) values (2, "Emirates", "Dubai", "UAE", "../../assets/img/emirates.png");
 insert into destinations(airline_id, destinations) values (2, "Berlin");
 insert into destinations(airline_id, destinations) values (2, "New York");
 insert into destinations(airline_id, destinations) values (2, "Moscow");

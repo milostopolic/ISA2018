@@ -27,7 +27,7 @@ public class FlightDTO {
 	
 	private List<String> stops;
 	
-	private AirlineDTO airlineDTO;
+	//private AirlineDTO airlineDTO;
 
 	public FlightDTO() {
 		super();
@@ -45,7 +45,7 @@ public class FlightDTO {
 		this.distance = f.getDistance();
 		this.price = f.getPrice();
 		this.stops = f.getStops();
-		this.airlineDTO = new AirlineDTO(f.getAirline());
+		//this.airlineDTO = new AirlineDTO(f.getAirline());
 	}
 
 	public Long getId() {
@@ -128,13 +128,13 @@ public class FlightDTO {
 		this.stops = stops;
 	}
 
-	public AirlineDTO getAirlineDTO() {
+	/*public AirlineDTO getAirlineDTO() {
 		return airlineDTO;
 	}
 
 	public void setAirlineDTO(AirlineDTO airlineDTO) {
 		this.airlineDTO = airlineDTO;
-	}
+	}*/
 	
 	
 

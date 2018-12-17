@@ -1,0 +1,13 @@
+.example-card {
+    max-width: 800px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  .hand{
+      cursor:pointer;
+  }

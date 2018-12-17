@@ -33,11 +33,13 @@ public class Airline {
 	
 	@OneToMany(mappedBy = "airline")
 	private List<Flight> flights;
-
+	
+	@Column(nullable = false)	
+	private String image;
 	
 
 	public Airline(Long id, String name, String address, String description, List<String> destinations,
-			List<Flight> flights) {
+			List<Flight> flights, String image) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -45,6 +47,7 @@ public class Airline {
 		this.description = description;
 		this.destinations = destinations;
 		this.flights = flights;
+		this.image = image;
 	}
 
 	public Airline() {
@@ -97,6 +100,14 @@ public class Airline {
 
 	public void setFlights(List<Flight> flights) {
 		this.flights = flights;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
 	}
 	
 	
