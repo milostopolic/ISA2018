@@ -27,6 +27,20 @@ public class RentACar {
 	
 	@OneToMany(mappedBy = "headOffice")
 	private List<BranchOffice> branches;
+	
+	@OneToMany(mappedBy = "headOffice")
+	private List<Vehicle> vehicles;
+
+	public RentACar(Long id, String name, String address, String description, List<BranchOffice> branches,
+			List<Vehicle> vehicles) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.address = address;
+		this.description = description;
+		this.branches = branches;
+		this.vehicles = vehicles;
+	}
 
 	public RentACar(Long id, String name, String address, String description) {
 		super();
@@ -70,6 +84,22 @@ public class RentACar {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public List<BranchOffice> getBranches() {
+		return branches;
+	}
+
+	public void setBranches(List<BranchOffice> branches) {
+		this.branches = branches;
+	}
+
+	public List<Vehicle> getVehicles() {
+		return vehicles;
+	}
+
+	public void setVehicles(List<Vehicle> vehicles) {
+		this.vehicles = vehicles;
 	}
 	
 	

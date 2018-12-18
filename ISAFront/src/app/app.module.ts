@@ -21,6 +21,8 @@ import { AirlinesComponent } from './airlines/airlines.component';
 import { AirlineService } from './services/airline.service';
 import { AirlineComponent } from './airline/airline.component';
 import { RentacarService } from './services/rentacar.service';
+import { RentacarsComponent } from './rentacars/rentacars.component';
+import { RentacarComponent } from './rentacar/rentacar.component';
 
 const appRoutes: Routes = [
   { path: 'profile/:id', component: ProfileComponent },
@@ -30,8 +32,8 @@ const appRoutes: Routes = [
   { path: 'hotels/:id', component: HotelComponent },
   { path: 'airlines', component: AirlinesComponent },
   { path: 'airlines/:id', component: AirlineComponent },
-  { path: 'rentacars', component: RentacarService },
-  { path: 'rentacars/:id', component: RentacarService }
+  { path: 'rentacars', component: RentacarsComponent },
+  { path: 'rentacars/:id', component: RentacarComponent }
 ];
 
 @NgModule({
@@ -46,7 +48,9 @@ const appRoutes: Routes = [
     HotelsComponent,
     HotelComponent,
     AirlinesComponent,
-    AirlineComponent,       
+    AirlineComponent,
+    RentacarsComponent,
+    RentacarComponent,       
   ],
   imports: [
     BrowserModule,

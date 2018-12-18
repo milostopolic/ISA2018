@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Vehicle {
@@ -27,8 +28,15 @@ public class Vehicle {
 	
 	@Column(nullable = false)
 	private VehicleType type;
+	
+	@Column(nullable = false)
+	private float price;
+	
+	@ManyToOne
+	private RentACar rentACar;
 
-	public Vehicle(Long id, String manufacturer, String model, int productionYear, int seats, VehicleType type) {
+	public Vehicle(Long id, String manufacturer, String model, int productionYear, int seats, VehicleType type,
+			float price, RentACar rentACar) {
 		super();
 		this.id = id;
 		this.manufacturer = manufacturer;
@@ -36,7 +44,9 @@ public class Vehicle {
 		this.productionYear = productionYear;
 		this.seats = seats;
 		this.type = type;
-	}
+		this.price = price;
+		this.rentACar = rentACar;
+	}	
 
 	public Vehicle() {
 		super();
@@ -89,6 +99,22 @@ public class Vehicle {
 
 	public void setType(VehicleType type) {
 		this.type = type;
+	}
+
+	public float getPrice() {
+		return price;
+	}
+
+	public void setPrice(float price) {
+		this.price = price;
+	}
+
+	public RentACar getRentACar() {
+		return rentACar;
+	}
+
+	public void setRentACar(RentACar rentACar) {
+		this.rentACar = rentACar;
 	}
 	
 	
