@@ -9,7 +9,6 @@ import { AppComponent } from './app.component';
 import { ProfileService } from './services/profile.service';
 import { ProfileComponent } from './profile/profile.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ProfileNavComponent } from './profile/profile-nav/profile-nav.component';
 import { ProfileEditComponent } from './profile/profile-edit/profile-edit.component';
 import { ProfileFriendsComponent } from './profile/profile-friends/profile-friends.component';
 import { HotelService } from './services/hotel.service';
@@ -23,6 +22,7 @@ import { AirlineComponent } from './airline/airline.component';
 import { RentacarService } from './services/rentacar.service';
 import { RentacarsComponent } from './rentacars/rentacars.component';
 import { RentacarComponent } from './rentacar/rentacar.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 const appRoutes: Routes = [
   { path: 'profile/:id', component: ProfileComponent },
@@ -40,7 +40,6 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     ProfileComponent,
-    ProfileNavComponent,
     ProfileEditComponent,
     ProfileFriendsComponent,
     HomepageComponent,
@@ -57,6 +56,8 @@ const appRoutes: Routes = [
     HttpClientModule,
     BrowserAnimationsModule,
     MaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true }

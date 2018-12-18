@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { UseExistingWebDriver } from 'protractor/built/driverProviders';
+import { User } from 'src/app/model/User';
 
 @Component({
   selector: 'app-profile-friends',
@@ -6,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile-friends.component.css']
 })
 export class ProfileFriendsComponent implements OnInit {
+
+  @Input()profile: User;
 
   constructor() { }
 

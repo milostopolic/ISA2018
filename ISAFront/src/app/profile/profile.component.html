@@ -3,7 +3,10 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-3 ">
-		     <app-profile-nav></app-profile-nav> 
+				<div class="list-group ">
+						<button (click)="show_profile()" class="list-group-item list-group-item-action" [class.active]="profile_show">Profile</button>
+						<button (click)="show_friends()" class="list-group-item list-group-item-action" [class.active]="friends_show">Friends</button>           						                        
+					</div>					
 		</div>
 		<div class="col-md-9">
 		    <div class="card">
@@ -16,7 +19,8 @@
 		            </div>
 		            <div class="row">
 		                <div class="col-md-12">
-		                    <app-profile-edit></app-profile-edit>
+							<app-profile-edit *ngIf="profile_show" [user]="user"></app-profile-edit>
+							<app-profile-friends *ngIf="friends_show" [profile]="user"></app-profile-friends>
 		                </div>
 		            </div>
 		            
