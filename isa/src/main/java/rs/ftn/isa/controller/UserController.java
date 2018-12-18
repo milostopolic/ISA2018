@@ -8,7 +8,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import rs.ftn.isa.dto.UserDTO;
@@ -49,6 +51,17 @@ public class UserController {
 			return new ResponseEntity<List<UserDTO>>(usersDTO, HttpStatus.OK);
 		}
 		return null;
+	}
+	
+	@RequestMapping(value="/update/{id}", method=RequestMethod.PUT)
+	public ResponseEntity<UserDTO> update(@RequestBody User user, @PathVariable Long id){
+		User oldUser = userService.getOne(id);
+		if(oldUser != null) {
+			User newUser = userService.update(oldUser, user);
+			return new ResponseEntity<UserDTO>(new UserDTO(newUser), HttpStatus.OK);
+		}else {
+			return null;
+		}
 	}
 	
 }

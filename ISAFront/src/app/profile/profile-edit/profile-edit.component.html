@@ -2,36 +2,36 @@
     <div class="form-group row">
       <label for="name" class="col-4 col-form-label">First Name</label> 
       <div class="col-8">
-        <input id="name" name="name" value="{{user.name}}" class="form-control here" type="text">
+        <input id="name" name="name" value="{{user.name}}" [formControl]="name" class="form-control here" type="text">
       </div>
     </div>
     <div class="form-group row">
-      <label for="lastname" class="col-4 col-form-label">Last Name</label> 
+      <label for="surname" class="col-4 col-form-label">Last Name</label> 
       <div class="col-8">
-        <input id="lastname" name="lastname" value="{{user.surname}}" class="form-control here" type="text">
+        <input id="surname" name="surname" value="{{user.surname}}" [formControl]="surname" class="form-control here" type="text">
       </div>
     </div>                                                          
     <div class="form-group row">
       <label for="email" class="col-4 col-form-label">Email</label> 
       <div class="col-8">
-        <input id="email" name="email" value="{{user.email}}" class="form-control here" type="text">
+        <input id="email" name="email" value="{{user.email}}" disabled class="form-control here" type="text">
       </div>
     </div>
     <div class="form-group row">
-      <label for="phoneNmb" class="col-4 col-form-label">Phone</label> 
+      <label for="phoneNmbr" class="col-4 col-form-label">Phone</label> 
       <div class="col-8">
-        <input id="phoneNmb" name="phoneNmb" value="{{user.phoneNmbr}}" class="form-control here" type="text">
+        <input id="phoneNmbr" name="phoneNmbr" value="{{user.phoneNmbr}}" [formControl]="phoneNmbr" class="form-control here" type="text">
       </div>
     </div>
     <div class="form-group row">
       <label for="address" class="col-4 col-form-label">Address</label> 
       <div class="col-8">
-        <input id="address" name="address" value="{{user.address}}" class="form-control here" type="text">
+        <input id="address" name="address" value="{{user.address}}" [formControl]="address" class="form-control here" type="text">
       </div>
     </div>                              
     <div class="form-group row">
       <div class="offset-4 col-8">
-        <button name="submit" type="submit" class="btn btn-primary">Update My Profile</button>
+        <button name="submit" (click)="updateBtn()" type="submit" class="btn btn-primary">Update My Profile</button>
       </div>
     </div>
   </form>
