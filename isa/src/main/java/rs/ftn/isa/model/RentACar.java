@@ -28,11 +28,14 @@ public class RentACar {
 	@OneToMany(mappedBy = "headOffice")
 	private List<BranchOffice> branches;
 	
-	@OneToMany(mappedBy = "headOffice")
+	@OneToMany(mappedBy = "rentACar")
 	private List<Vehicle> vehicles;
+	
+	@Column(nullable = false)	
+	private String image;
 
 	public RentACar(Long id, String name, String address, String description, List<BranchOffice> branches,
-			List<Vehicle> vehicles) {
+			List<Vehicle> vehicles, String image) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -40,6 +43,7 @@ public class RentACar {
 		this.description = description;
 		this.branches = branches;
 		this.vehicles = vehicles;
+		this.image = image;
 	}
 
 	public RentACar(Long id, String name, String address, String description) {
@@ -100,6 +104,14 @@ public class RentACar {
 
 	public void setVehicles(List<Vehicle> vehicles) {
 		this.vehicles = vehicles;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
 	}
 	
 	

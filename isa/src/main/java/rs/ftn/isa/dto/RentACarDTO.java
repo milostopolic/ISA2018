@@ -20,9 +20,11 @@ public class RentACarDTO {
 	private List<BranchOfficeDTO> branchOfficesDTO;
 	
 	private List<VehicleDTO> vehiclesDTO;
+	
+	private String image;
 
 	public RentACarDTO(Long id, String name, String address, String description,
-			List<BranchOfficeDTO> branchOfficesDTO, List<VehicleDTO> vehiclesDTO) {
+			List<BranchOfficeDTO> branchOfficesDTO, List<VehicleDTO> vehiclesDTO, String image) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -30,6 +32,7 @@ public class RentACarDTO {
 		this.description = description;
 		this.branchOfficesDTO = branchOfficesDTO;
 		this.vehiclesDTO = vehiclesDTO;
+		this.image = image;
 	}	
 	
 	public RentACarDTO(RentACar rac) {
@@ -48,6 +51,7 @@ public class RentACarDTO {
 		this.address = rac.getAddress();
 		this.branchOfficesDTO = branchOfficesDTO;
 		this.vehiclesDTO = vehiclesDTO;
+		this.image = rac.getImage();
 	}
 
 	public RentACarDTO() {
@@ -76,6 +80,38 @@ public class RentACarDTO {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public List<BranchOfficeDTO> getBranchOfficesDTO() {
+		return branchOfficesDTO;
+	}
+
+	public void setBranchOfficesDTO(List<BranchOfficeDTO> branchOfficesDTO) {
+		this.branchOfficesDTO = branchOfficesDTO;
+	}
+
+	public List<VehicleDTO> getVehiclesDTO() {
+		return vehiclesDTO;
+	}
+
+	public void setVehiclesDTO(List<VehicleDTO> vehiclesDTO) {
+		this.vehiclesDTO = vehiclesDTO;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
 	}
 	
 	
