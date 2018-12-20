@@ -26,3 +26,12 @@ insert into flight(id, departure_place, destination, take_off_date, take_off_tim
 insert into flight(id, departure_place, destination, take_off_date, take_off_time, land_date, land_time, distance, airline_id, price) values (3, "Dubai", "New York", "2018-12-22", "12:00", "2018-12-23", "16:00", 7090, 2, 1480);
 insert into stops(flight_id, stops) values (3, "Paris");
 insert into stops(flight_id, stops) values (3, "Lisabon");
+
+insert into rentacar(id, name, address, description, image) values (1, "Star", "Novi Sad", "Best prices", "../../assets/img/star.png");
+insert into rentacar(id, name, address, description, image) values (2, "Control", "Beograd", "Best cars", "../../assets/img/control.jpg");
+insert into vehicle(id, manufacturer, model, production_year, seats, type, price, rentacar_id) values (1, "Mercedes-Benz", "S-Class", 2016, 4, 3, 190, 2);
+insert into vehicle(id, manufacturer, model, production_year, seats, type, price, rentacar_id) values (2, "Audi", "A3", 2017, 5, 0, 90, 2);
+insert into vehicle(id, manufacturer, model, production_year, seats, type, price, rentacar_id) values (3, "Skoda", "Octavia", 2014, 5, 1, 70, 1);
+insert into branch_office(id, address, head_office_id) values (1, "Maksima Gorkog 32", 1);
+insert into branch_office(id, address, head_office_id) values (2, "Bulevar oslobodjenja 126", 1);
+insert into branch_office(id, address, head_office_id) values (3, "Hajduk Veljkova 7", 2);

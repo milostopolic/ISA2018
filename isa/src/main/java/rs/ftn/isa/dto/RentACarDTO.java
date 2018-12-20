@@ -49,6 +49,7 @@ public class RentACarDTO {
 		this.id = rac.getId();
 		this.name = rac.getName();
 		this.address = rac.getAddress();
+		this.description = rac.getDescription();
 		this.branchOfficesDTO = branchOfficesDTO;
 		this.vehiclesDTO = vehiclesDTO;
 		this.image = rac.getImage();

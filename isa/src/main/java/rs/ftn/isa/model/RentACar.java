@@ -44,15 +44,7 @@ public class RentACar {
 		this.branches = branches;
 		this.vehicles = vehicles;
 		this.image = image;
-	}
-
-	public RentACar(Long id, String name, String address, String description) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.address = address;
-		this.description = description;
-	}
+	}	
 
 	public RentACar() {
 		super();

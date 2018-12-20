@@ -10,11 +10,11 @@ export class RentacarService {
 
   constructor(private http : HttpClient) { }
 
-  getAllHotels() : Observable<any> {
+  getAllRentacars() : Observable<any> {
     return this.http.get('//localhost:8080/api/rentacars/all');
   }
 
-  getHotelById(id) : Observable<any> {
+  getRentacarById(id) : Observable<any> {
     return this.http.get('//localhost:8080/api/rentacars/' + id);
   } 
 }
