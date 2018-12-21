@@ -9,7 +9,7 @@ export class Flight {
     landDate: string;
     landTime: string;
     distance: number;
-    stops: string[];
+    stops: Array<string>[];
     airline: Airline;
     price: number;    
   }

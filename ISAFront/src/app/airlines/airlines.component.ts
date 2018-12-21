@@ -13,6 +13,7 @@ export class AirlinesComponent implements OnInit {
 
   constructor(private airlineService : AirlineService) { }
 
+  
   ngOnInit() {
     this.airlineService.getAllAirlines().subscribe(data => { this.airlines = data });
   }

@@ -13,6 +13,7 @@
     </p>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button color="primary" [routerLink]="[airline.id]">ENTER</button>        
+    <button mat-raised-button color="primary" [routerLink]="[airline.id]">ENTER</button>
+    <button mat-raised-button color="primary" [routerLink]="['admin', airline.id]">EDIT</button>         
   </mat-card-actions>
 </mat-card>
