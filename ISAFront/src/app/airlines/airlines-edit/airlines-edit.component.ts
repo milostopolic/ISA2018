@@ -15,7 +15,10 @@ export class AirlinesEditComponent implements OnInit {
   id;
   airline: Airline = new Airline();
   flights: Flight[];
+  destinations : Array<string>;
+
   temp : string = "";
+
   name = new FormControl("");
   description = new FormControl("");
   address = new FormControl("");
@@ -38,11 +41,23 @@ export class AirlinesEditComponent implements OnInit {
     alert(flight.destination);
   }
 
+  deleteDestination(destination){
+    alert(destination.destination);
+  }
+
+  editDestination(destination){
+    alert(destination.destination);
+  }
+
   constructor(private airlineService : AirlineService, private router : ActivatedRoute ) { }
 
   ngOnInit() {
     this.id = this.router.snapshot.params.id;
-    this.airlineService.getAirlineById(this.id).subscribe(data => { this.airline = data; this.flights = data.flightsDTO; });
+    this.airlineService.getAirlineById(this.id).subscribe(data => { 
+        this.airline = data; 
+        this.flights = data.flightsDTO; 
+        this.destinations = data.destinations;
+    });
 
   }
 

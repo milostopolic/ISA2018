@@ -6,5 +6,5 @@ export class Airline {
     address: string;
     description: string;    
     image: string;
-    
+    destinations: Array<string>;
   }

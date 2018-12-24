@@ -16,26 +16,30 @@ public class AirlineDTO {
 	
 	private String description;
 	
-	private List<String> destionations;
+	private List<String> destinations;
 	
 	private List<FlightDTO> flightsDTO;	
 	
 	private String image;
 	
-	public AirlineDTO(Long id, String name, String address, String description, List<String> destionations,
+	public AirlineDTO(Long id, String name, String address, String description, List<String> destinations,
 			List<FlightDTO> flightsDTO, String image) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.address = address;
 		this.description = description;
-		this.destionations = destionations;
+		this.destinations = destinations;
 		this.flightsDTO = flightsDTO;
 		this.image = image;
 	}
 
 	public AirlineDTO(Airline airline) {
 		List<FlightDTO> flightsDTO = new ArrayList<>();
+		List<String> destinations = new ArrayList<>();
+		for(String d : airline.getDestinations()) {
+			destinations.add(d);
+		}
 		System.out.println("prvi");
 		for(Flight f : airline.getFlights()) {
 			flightsDTO.add(new FlightDTO(f));
@@ -45,7 +49,7 @@ public class AirlineDTO {
 		this.name = airline.getName();
 		this.address = airline.getAddress();
 		this.description = airline.getDescription();
-		this.destionations = airline.getDestinations();
+		this.destinations = airline.getDestinations();
 		this.flightsDTO = flightsDTO;
 		this.image = airline.getImage();
 	}
@@ -94,12 +98,12 @@ public class AirlineDTO {
 		this.id = id;
 	}
 
-	public List<String> getDestionations() {
-		return destionations;
+	public List<String> getDestinations() {
+		return destinations;
 	}
 
-	public void setDestionations(List<String> destionations) {
-		this.destionations = destionations;
+	public void setDestinations(List<String> destinations) {
+		this.destinations = destinations;
 	}
 
 	public List<FlightDTO> getFlightsDTO() {
