@@ -48,7 +48,7 @@ export class AirlineUpdateComponent implements OnInit {
   updateBtn(){
     this.fillValues();
     this.airlineEdit.id = this.airline.id;
-    this.airlineService.updateAriline(this.airlineEdit).subscribe(response=>{
+    this.airlineService.updateAirline(this.airlineEdit).subscribe(response=>{
       this.airlineEdit = response;
       this.name.setValue(this.airlineEdit.name);
       this.address.setValue(this.airlineEdit.address);

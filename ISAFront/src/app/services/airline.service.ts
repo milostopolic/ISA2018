@@ -18,9 +18,9 @@ export class AirlineService {
     return this.http.get('//localhost:8080/api/airlines/' + id);
   }
 
-  updateAriline(airlines:Airline) : Observable<any> {
-    alert(airlines.name);
-    return this.http.put('//localhost:8080/api/airlines/update/' + airlines.id, airlines);
+  updateAirline(airline:Airline) : Observable<any> {
+    alert(airline.name);
+    return this.http.put('//localhost:8080/api/airlines/update/' + airline.id, airline);
   }
 }
  

@@ -29,5 +29,21 @@ public class HotelServiceImpl implements HotelService {
 		// TODO Auto-generated method stub
 		return hotelRepository.save(hotel);
 	}
+
+	@Override
+	public Hotel update(Hotel oldHotel, Hotel newHotel) {
+		// TODO Auto-generated method stub
+		if(newHotel.getName() != null) {
+			oldHotel.setName(newHotel.getName());
+		}
+		if(newHotel.getAddress() != null) {
+			oldHotel.setAddress(newHotel.getAddress());
+		}
+		if(newHotel.getDescription() != null) {
+			oldHotel.setDescription(newHotel.getDescription());
+		}
+		
+		return hotelRepository.save(oldHotel);
+	}
 	
 }
