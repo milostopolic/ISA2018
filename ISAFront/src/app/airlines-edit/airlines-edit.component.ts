@@ -13,40 +13,28 @@ import { FormControl } from '@angular/forms';
 export class AirlinesEditComponent implements OnInit {
 
   id;
-  airline: Airline = new Airline();
-  flights: Flight[];
-  destinations : Array<string>;
+  airline:Airline = new Airline();
 
-  temp : string = "";
+  airline_show:boolean = true;
+  destination_show:boolean = false;
+  flight_show:boolean = false;
 
-  name = new FormControl("");
-  description = new FormControl("");
-  address = new FormControl("");
-
-  fillStops(stops){
-    this.temp = "";
-    for(let stop of stops){
-      this.temp += stop + ", ";
-    }
-    this.temp = this.temp.substring(0, this.temp.length-2);
-    //alert(this.temp);
-    return this.temp;
+  show_destination(){
+    this.airline_show = false;
+    this.destination_show = true;
+    this.flight_show = false;
   }
 
-  deleteFlight(flight){
-    alert(flight.id);
+  show_flight(){
+    this.airline_show = false;
+    this.destination_show = false;
+    this.flight_show = true;
   }
 
-  editFlight(flight){
-    alert(flight.id);
-  }
-
-  deleteDestination(destination){
-    alert(destination.destination);
-  }
-
-  editDestination(destination){
-    alert(destination.destination);
+  show_airline(){
+    this.airline_show = true;
+    this.destination_show = false;
+    this.flight_show = false;
   }
 
   constructor(private airlineService : AirlineService, private router : ActivatedRoute ) { }
@@ -55,10 +43,7 @@ export class AirlinesEditComponent implements OnInit {
     this.id = this.router.snapshot.params.id;
     this.airlineService.getAirlineById(this.id).subscribe(data => { 
         this.airline = data; 
-        this.flights = data.flightsDTO; 
-        this.destinations = data.destinations;
     });
-
   }
 
 }

@@ -1,95 +1,39 @@
-<h1>Edit airline</h1>
 
-<form class="formaGore">                             
-  <div class="form-group row">
-    <label for="name" class="col-4 col-form-label">Name</label> 
-    <div class="col-8">
-      <input id="name" name="name" value="{{airline.name}}" [formControl]="name" class="form-control here" type="text">
-    </div>
-  </div>
-  <div class="form-group row">
-    <label for="address" class="col-4 col-form-label">Address</label> 
-    <div class="col-8">
-      <input id="address" name="address" value="{{airline.address}}" [formControl]="address" class="form-control here" type="text">
-    </div>
-  </div>                                                          
-  <div class="form-group row">
-    <label for="description" class="col-4 col-form-label">Description</label> 
-    <div class="col-8">
-      <input id="description" name="description" value="{{airline.description}}" [formControl]="address" class="form-control here" type="text">
-    </div>  
-  </div>                         
-  <div class="form-group row">
-    <div class="offset-4 col-8">
-      <button name="submit" (click)="updateBtn()" type="submit" mat-raised-button data-toggle="modal" data-target="#exampleModal" color="primary">Update</button>
-    </div>
-  </div>
-</form>
-
-<div class="row">
-<h3>Destinations</h3>
-<td><button (click) = "addDestination()" style="margin-top: 20px;" mat-raised-button data-toggle="modal" data-target="#exampleModal" color="primary">Add</button></td>
+<br/>
+<br/>
+<div class="container">
+	<div class="row">
+		<div class="col-md-3 ">
+				<div class="list-group ">
+						<button (click)="show_airline()" class="list-group-item list-group-item-action" [class.active]="airline_show">Airline</button>
+            <button (click)="show_destination()" class="list-group-item list-group-item-action" [class.active]="destination_show">Destinations</button> 
+            <button (click)="show_flight()" class="list-group-item list-group-item-action" [class.active]="flight_show">Flights</button>           						                        
+					</div>					
+		</div>
+		<div class="col-md-9">
+		    <div class="card">
+		        <div class="card-body">
+		            <div class="row">
+		                <div class="col-md-12">
+		                    <h1>Edit airline</h1>
+		                    <hr>
+		                </div>
+		            </div>
+		            <div class="row">
+		                <div class="col-md-12">
+							<app-airline-update *ngIf="airline_show" [airline]="airline"></app-airline-update>
+              				<app-airline-destination *ngIf="destination_show" [airline]="airline"></app-airline-destination>
+              				<app-airline-flight *ngIf="flight_show" [airline]="airline"></app-airline-flight>
+		                </div>
+		            </div>
+		            
+		        </div>
+		    </div>
+		</div>
+	</div>
 </div>
 
-<div class="table-responsive">
-  <table class="table table-striped table-sm" id="tabela1">
-    <thead>
-      <tr>
-        <th>Destination</th>       
-        <th>Edit</th>
-        <th>Delete</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let destination of destinations">      
-        <td>{{destination}}</td>       
-        <td><button (click) = "editDestination(destination)" mat-raised-button data-toggle="modal" data-target="#exampleModal" color="primary">Edit</button></td>
-        <td><button (click) = "deleteDestination(destination)" color="primary">Delete</button></td>
-      </tr>
-    </tbody>
-  </table>
-  </div>
 
-<div class="row">
-<h3>Flights</h3>
-<td><button (click) = "addFlight()" style="margin-top: 20px" mat-raised-button data-toggle="modal" data-target="#exampleModal" color="primary">Add</button></td>
-</div>
 
-<div class="table-responsive">
-  <table class="table table-striped table-sm" id="tabela2">
-    <thead>
-      <tr>
-        <th>Id</th>
-        <th>Departure place</th>
-        <th>Destination</th>
-        <th>Take off date</th>
-        <th>Take off time</th>
-        <th>Land date</th>
-        <th>Land time</th>
-        <th>Distance</th>
-        <th>Stops</th>
-        <th>Price</th>
-        <th>Edit</th>
-        <th>Delete</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let flight of flights">
-        <td>{{flight.id}}</td>
-        <td>{{flight.departurePlace}}</td>
-        <td>{{flight.destination}}</td>
-        <td>{{flight.takeOffDate}}</td>
-        <td>{{flight.takeOffTime}}</td>
-        <td>{{flight.landDate}}</td>
-        <td>{{flight.landTime}}</td>
-        <td>{{flight.distance}}</td>
-        <td>{{fillStops(flight.stops)}}</td>
-        <td>{{flight.price}}</td>
-        <td><button (click) = "editFlight(flight)" mat-raised-button data-toggle="modal" data-target="#exampleModal" color="primary">Edit</button></td>
-        <td><button (click) = "deleteFlight(flight)" color="primary">Delete</button></td>
-      </tr>
-    </tbody>
-  </table>
-  
-</div>
+
 

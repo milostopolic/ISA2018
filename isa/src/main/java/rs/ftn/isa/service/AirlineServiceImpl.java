@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import rs.ftn.isa.model.Airline;
+import rs.ftn.isa.model.User;
 import rs.ftn.isa.repository.AirlineRepository;
 
 @Service
@@ -30,6 +31,23 @@ public class AirlineServiceImpl implements AirlineService {
 	public Airline save(Airline airline) {
 		// TODO Auto-generated method stub
 		return airlineRepository.save(airline);
+	}
+
+	@Override
+	public Airline update(Airline oldAirline, Airline newAirline) {
+		// TODO Auto-generated method stub
+		if(newAirline.getName() != null){
+			oldAirline.setName(newAirline.getName());
+		}		
+		if(newAirline.getAddress() != null){
+			oldAirline.setAddress(newAirline.getAddress());
+		}
+		if(newAirline.getDescription() != null){
+			oldAirline.setDescription(newAirline.getDescription());
+		}
+		
+		
+		return airlineRepository.save(oldAirline);
 	}
 
 }

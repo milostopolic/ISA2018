@@ -1,0 +1,23 @@
+  <div class="row header">
+  <h3>Destinations</h3>
+  <td><button (click) = "addDestination()" style="margin-left: 515px; margin-top:10px;vertical-align: middle;" mat-raised-button data-toggle="modal" data-target="#exampleModal" color="primary">Add</button></td>
+  </div>
+  
+  <div class="table-responsive">
+    <table class="table table-striped table-sm" id="tabela1">
+      <thead>
+        <tr>
+          <th>Destination</th>       
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let destination of destinations">      
+          <td>{{destination}}</td>       
+          <td><button (click) = "editDestination(destination)" mat-raised-button data-toggle="modal" data-target="#exampleModal" color="primary">Edit</button></td>
+          <td><button (click) = "deleteDestination(destination)" mat-raised-button color="primary">Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>

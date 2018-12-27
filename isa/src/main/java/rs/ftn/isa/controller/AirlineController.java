@@ -8,11 +8,15 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import rs.ftn.isa.dto.AirlineDTO;
+import rs.ftn.isa.dto.UserDTO;
 import rs.ftn.isa.model.Airline;
+import rs.ftn.isa.model.User;
 import rs.ftn.isa.service.AirlineService;
 
 @RestController
@@ -44,6 +48,17 @@ public class AirlineController {
 			return new ResponseEntity<List<AirlineDTO>>(airlinesDTO, HttpStatus.OK);
 		}
 		return null;
+	}
+	
+	@RequestMapping(value="/update/{id}", method=RequestMethod.PUT)
+	public ResponseEntity<AirlineDTO> update(@RequestBody Airline airline, @PathVariable Long id){
+		Airline oldAirline = airlineService.getOne(id);		
+		if(oldAirline != null) {
+			Airline newAirline = airlineService.update(oldAirline, airline);
+			return new ResponseEntity<AirlineDTO>(new AirlineDTO(newAirline), HttpStatus.OK);
+		}
+			return null;
+		
 	}
 
 }

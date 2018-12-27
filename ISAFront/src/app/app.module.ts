@@ -24,6 +24,9 @@ import { RentacarsComponent } from './rentacars/rentacars.component';
 import { RentacarComponent } from './rentacar/rentacar.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AirlinesEditComponent } from './airlines-edit/airlines-edit.component';
+import { AirlineUpdateComponent } from './airlines-edit/airline-update/airline-update.component';
+import { AirlineDestinationComponent } from './airlines-edit/airline-destination/airline-destination.component';
+import { AirlineFlightComponent } from './airlines-edit/airline-flight/airline-flight.component';
 
 const appRoutes: Routes = [
   { path: 'profile/:id', component: ProfileComponent },
@@ -52,7 +55,10 @@ const appRoutes: Routes = [
     AirlineComponent,
     RentacarsComponent,
     RentacarComponent,
-    AirlinesEditComponent,       
+    AirlinesEditComponent,
+    AirlineUpdateComponent,
+    AirlineDestinationComponent,
+    AirlineFlightComponent,       
   ],
   imports: [
     BrowserModule,
