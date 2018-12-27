@@ -26,7 +26,10 @@
   </div>
 </form>
 
+<div class="row">
 <h3>Destinations</h3>
+<td><button (click) = "addDestination()" style="margin-top: 20px;" mat-raised-button data-toggle="modal" data-target="#exampleModal" color="primary">Add</button></td>
+</div>
 
 <div class="table-responsive">
   <table class="table table-striped table-sm" id="tabela1">
@@ -40,13 +43,17 @@
     <tbody>
       <tr *ngFor="let destination of destinations">      
         <td>{{destination}}</td>       
-        <td><button (click) = "editFlight(flight)" mat-raised-button data-toggle="modal" data-target="#exampleModal" color="primary">Edit</button></td>
-        <td><button (click) = "deleteFlight(flight)" mat-raised-button data-toggle="modal" data-target="#exampleModal" color="primary">Delete</button></td>
+        <td><button (click) = "editDestination(destination)" mat-raised-button data-toggle="modal" data-target="#exampleModal" color="primary">Edit</button></td>
+        <td><button (click) = "deleteDestination(destination)" color="primary">Delete</button></td>
       </tr>
     </tbody>
   </table>
+  </div>
 
+<div class="row">
 <h3>Flights</h3>
+<td><button (click) = "addFlight()" style="margin-top: 20px" mat-raised-button data-toggle="modal" data-target="#exampleModal" color="primary">Add</button></td>
+</div>
 
 <div class="table-responsive">
   <table class="table table-striped table-sm" id="tabela2">
@@ -79,9 +86,10 @@
         <td>{{fillStops(flight.stops)}}</td>
         <td>{{flight.price}}</td>
         <td><button (click) = "editFlight(flight)" mat-raised-button data-toggle="modal" data-target="#exampleModal" color="primary">Edit</button></td>
-        <td><button (click) = "deleteFlight(flight)" mat-raised-button data-toggle="modal" data-target="#exampleModal" color="primary">Delete</button></td>
+        <td><button (click) = "deleteFlight(flight)" color="primary">Delete</button></td>
       </tr>
     </tbody>
   </table>
   
 </div>
+

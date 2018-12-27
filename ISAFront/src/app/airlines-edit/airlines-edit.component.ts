@@ -34,11 +34,11 @@ export class AirlinesEditComponent implements OnInit {
   }
 
   deleteFlight(flight){
-    alert(flight.destination);
+    alert(flight.id);
   }
 
   editFlight(flight){
-    alert(flight.destination);
+    alert(flight.id);
   }
 
   deleteDestination(destination){
