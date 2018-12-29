@@ -3,6 +3,7 @@ package rs.ftn.isa.service;
 import java.util.List;
 
 import rs.ftn.isa.model.Airline;
+import rs.ftn.isa.model.Destination;
 
 public interface AirlineService {
 	

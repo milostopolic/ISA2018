@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import rs.ftn.isa.model.Airline;
+import rs.ftn.isa.model.Destination;
 import rs.ftn.isa.model.User;
 import rs.ftn.isa.repository.AirlineRepository;
+import rs.ftn.isa.repository.DestinationRepository;
 
 @Service
 public class AirlineServiceImpl implements AirlineService {
@@ -15,6 +17,7 @@ public class AirlineServiceImpl implements AirlineService {
 	@Autowired
 	private AirlineRepository airlineRepository;
 	
+		
 	@Override
 	public Airline getOne(Long id) {
 		// TODO Auto-generated method stub
@@ -49,5 +52,7 @@ public class AirlineServiceImpl implements AirlineService {
 		
 		return airlineRepository.save(oldAirline);
 	}
+
+	
 
 }

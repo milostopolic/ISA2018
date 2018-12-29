@@ -12,14 +12,14 @@ insert into room(id, beds, price, hotel_id) values (2, 3, 54, 1);
 insert into room(id, beds, price, hotel_id) values (3, 4, 67, 1);
 
 insert into airline(id, name, address, description, image) values (1, "Air Srbija", "Beograd", "Serbian airline", "../../assets/img/airserbia.jpg");
-insert into destinations(airline_id, destinations) values (1, "London");
-insert into destinations(airline_id, destinations) values (1, "Madrid");
-insert into destinations(airline_id, destinations) values (1, "Berlin");
+insert into destination(airline_id, name) values (1, "Beocin");
+insert into destination(airline_id, name) values (1, "Madrid");
+insert into destination(airline_id, name) values (1, "Berlin");
 insert into airline(id, name, address, description, image) values (2, "Emirates", "Dubai", "UAE", "../../assets/img/emirates.png");
-insert into destinations(airline_id, destinations) values (2, "Berlin");
-insert into destinations(airline_id, destinations) values (2, "New York");
-insert into destinations(airline_id, destinations) values (2, "Moscow");
-insert into destinations(airline_id, destinations) values (2, "Nis");
+insert into destination(airline_id, name) values (2, "Berlin");
+insert into destination(airline_id, name) values (2, "New York");
+insert into destination(airline_id, name) values (2, "Moscow");
+insert into destination(airline_id, name) values (2, "Nis");
 
 insert into flight(id, departure_place, destination, take_off_date, take_off_time, land_date, land_time, distance, airline_id, price) values (1, "Beograd", "London", "2018-12-22", "12:00", "2018-12-22", "16:00", 670, 1, 300);
 insert into flight(id, departure_place, destination, take_off_date, take_off_time, land_date, land_time, distance, airline_id, price) values (2, "Beograd", "Madrid", "2018-12-23", "12:00", "2018-12-23", "16:00", 1790, 1, 800);
