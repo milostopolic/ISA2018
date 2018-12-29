@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import rs.ftn.isa.model.Airline;
+import rs.ftn.isa.model.Destination;
 import rs.ftn.isa.model.Flight;
 
 public class AirlineDTO {
@@ -16,13 +17,13 @@ public class AirlineDTO {
 	
 	private String description;
 	
-	private List<String> destinations;
+	private List<DestinationDTO> destinations;
 	
 	private List<FlightDTO> flightsDTO;	
 	
 	private String image;
 	
-	public AirlineDTO(Long id, String name, String address, String description, List<String> destinations,
+	public AirlineDTO(Long id, String name, String address, String description, List<DestinationDTO> destinations,
 			List<FlightDTO> flightsDTO, String image) {
 		super();
 		this.id = id;
@@ -36,9 +37,10 @@ public class AirlineDTO {
 
 	public AirlineDTO(Airline airline) {
 		List<FlightDTO> flightsDTO = new ArrayList<>();
-		List<String> destinations = new ArrayList<>();
-		for(String d : airline.getDestinations()) {
-			destinations.add(d);
+		List<DestinationDTO> destinations = new ArrayList<>();
+		for(Destination d : airline.getDestinations()) {
+			destinations.add(new DestinationDTO(d));
+			
 		}
 		System.out.println("prvi");
 		for(Flight f : airline.getFlights()) {
@@ -49,7 +51,7 @@ public class AirlineDTO {
 		this.name = airline.getName();
 		this.address = airline.getAddress();
 		this.description = airline.getDescription();
-		this.destinations = airline.getDestinations();
+		this.destinations = destinations;
 		this.flightsDTO = flightsDTO;
 		this.image = airline.getImage();
 	}
@@ -98,11 +100,11 @@ public class AirlineDTO {
 		this.id = id;
 	}
 
-	public List<String> getDestinations() {
+	public List<DestinationDTO> getDestinations() {
 		return destinations;
 	}
 
-	public void setDestinations(List<String> destinations) {
+	public void setDestinations(List<DestinationDTO> destinations) {
 		this.destinations = destinations;
 	}
 

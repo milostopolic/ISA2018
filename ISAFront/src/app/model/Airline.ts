@@ -1,4 +1,5 @@
 import { Flight } from 'src/app/model/Flight';
+import { Destination } from './Destination';
 
 export class Airline { 
     id: number;
@@ -6,5 +7,5 @@ export class Airline {
     address: string;
     description: string;    
     image: string;
-    destinations: Array<string>;
+    destinations: Array<Destination>;
   }

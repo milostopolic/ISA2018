@@ -27,9 +27,8 @@ public class Airline {
 	@Column(nullable = false)
 	private String description;
 	
-	@ElementCollection
-	@CollectionTable(name="destinations")
-	private List<String> destinations;
+	@OneToMany(mappedBy = "airline")
+	private List<Destination> destinations;
 	
 	@OneToMany(mappedBy = "airline")
 	private List<Flight> flights;
@@ -38,7 +37,7 @@ public class Airline {
 	private String image;
 	
 
-	public Airline(Long id, String name, String address, String description, List<String> destinations,
+	public Airline(Long id, String name, String address, String description, List<Destination> destinations,
 			List<Flight> flights, String image) {
 		super();
 		this.id = id;
@@ -86,11 +85,11 @@ public class Airline {
 		this.description = description;
 	}
 
-	public List<String> getDestinations() {
+	public List<Destination> getDestinations() {
 		return destinations;
 	}
 
-	public void setDestinations(List<String> destinations) {
+	public void setDestinations(List<Destination> destinations) {
 		this.destinations = destinations;
 	}
 

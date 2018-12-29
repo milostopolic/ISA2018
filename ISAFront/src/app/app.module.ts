@@ -63,7 +63,7 @@ const appRoutes: Routes = [
     AirlineDestinationComponent,
     AirlineFlightComponent,
     HotelsEditComponent,
-    HotelUpdateComponent,       
+    HotelUpdateComponent,     
   ],
   imports: [
     BrowserModule,
