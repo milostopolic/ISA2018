@@ -36,6 +36,48 @@
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
+
+        <br>
+
+        <mat-accordion>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Additional Services
+              </mat-panel-title>
+              <mat-panel-description>
+                Click to expand
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <div> 
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Service</th>
+                    <th scope="col">Price</th>                    
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let additionalservice of additionalServices">                    
+                    <td>{{ additionalservice.name }}</td>
+                    <td>{{ additionalservice.price }}</td>                    
+                  </tr>                  
+                </tbody>
+              </table>
+            </div>
+            <!--mat-form-field>
+              <input matInput placeholder="First name">
+            </mat-form-field>
+        
+            <mat-form-field>
+              <input matInput placeholder="Age">
+            </mat-form-field-->
+
+          </mat-expansion-panel>          
+        </mat-accordion>
+
+
     </mat-card-content>
     <!--mat-card-actions>
       <button mat-raised-button color="primary" [routerLink]="[hotel.id]">ENTER</button>        

@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Hotel {
@@ -30,14 +31,18 @@ public class Hotel {
 	
 	@OneToMany(mappedBy = "hotel")
 	private List<Room> rooms;
+	
+	@OneToOne(mappedBy = "hotel")
+	private Pricelist pricelist;
 
-	public Hotel(Long id, String name, String address, String description, String image) {
+	public Hotel(Long id, String name, String address, String description, String image, Pricelist pricelist) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.address = address;
 		this.description = description;
 		this.image = image;
+		this.pricelist = pricelist;
 	}
 
 	public Hotel() {
@@ -90,6 +95,14 @@ public class Hotel {
 
 	public void setRooms(List<Room> rooms) {
 		this.rooms = rooms;
+	}
+
+	public Pricelist getPricelist() {
+		return pricelist;
+	}
+
+	public void setPricelist(Pricelist pricelist) {
+		this.pricelist = pricelist;
 	}
 	
 	

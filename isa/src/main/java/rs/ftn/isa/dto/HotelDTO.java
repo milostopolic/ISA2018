@@ -19,10 +19,12 @@ public class HotelDTO {
 	private String image;
 	
 	private List<RoomDTO> roomsDTO;
+	
+	private PricelistDTO pricelistDTO;
 
 	
 	
-	public HotelDTO(Long id, String name, String address, String description, String image, List<RoomDTO> roomsDTO) {
+	public HotelDTO(Long id, String name, String address, String description, String image, List<RoomDTO> roomsDTO, PricelistDTO pricelistDTO) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -30,6 +32,7 @@ public class HotelDTO {
 		this.description = description;
 		this.image = image;
 		this.roomsDTO = roomsDTO;
+		this.pricelistDTO = pricelistDTO;
 	}
 
 	public HotelDTO(Hotel hotel) {
@@ -43,6 +46,9 @@ public class HotelDTO {
 		this.description = hotel.getDescription();
 		this.image = hotel.getImage();
 		this.roomsDTO = roomsDTO;
+		
+		if(hotel.getPricelist() != null)
+			this.pricelistDTO = new PricelistDTO(hotel.getPricelist());
 	}
 
 	public HotelDTO() {
@@ -95,6 +101,14 @@ public class HotelDTO {
 
 	public void setRoomsDTO(List<RoomDTO> roomsDTO) {
 		this.roomsDTO = roomsDTO;
+	}
+
+	public PricelistDTO getPricelistDTO() {
+		return pricelistDTO;
+	}
+
+	public void setPricelistDTO(PricelistDTO pricelistDTO) {
+		this.pricelistDTO = pricelistDTO;
 	}
 	
 	

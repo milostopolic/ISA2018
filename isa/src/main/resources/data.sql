@@ -35,3 +35,15 @@ insert into vehicle(id, manufacturer, model, production_year, seats, type, price
 insert into branch_office(id, address, head_office_id) values (1, "Maksima Gorkog 32", 1);
 insert into branch_office(id, address, head_office_id) values (2, "Bulevar oslobodjenja 126", 1);
 insert into branch_office(id, address, head_office_id) values (3, "Hajduk Veljkova 7", 2);
+
+insert into pricelist(id, hotel_id) values (1, 1);
+insert into pricelist(id, hotel_id) values (2, 2);
+insert into pricelist(id, hotel_id) values (3, 3);
+
+
+insert into additional_service(id, name, price, pricelist_id) values (1, 'Wifi', 10, 1);
+insert into additional_service(id, name, price, pricelist_id) values (2, 'Wifi', 13, 2);
+insert into additional_service(id, name, price, pricelist_id) values (3, 'Wifi', 12, 3);
+insert into additional_service(id, name, price, pricelist_id) values (4, 'Breakfast', 7, 1);
+insert into additional_service(id, name, price, pricelist_id) values (5, 'Air condition', 5, 1);
+insert into additional_service(id, name, price, pricelist_id) values (6, 'Parking', 11, 1);
