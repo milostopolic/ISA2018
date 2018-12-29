@@ -29,6 +29,8 @@ import { AirlineDestinationComponent } from './airlines-edit/airline-destination
 import { AirlineFlightComponent } from './airlines-edit/airline-flight/airline-flight.component';
 import { HotelsEditComponent } from './hotels-edit/hotels-edit.component';
 import { HotelUpdateComponent } from './hotels-edit/hotel-update/hotel-update.component';
+import { HotelRoomsComponent } from './hotels-edit/hotel-rooms/hotel-rooms.component';
+import { HotelAdditionalServicesComponent } from './hotels-edit/hotel-additional-services/hotel-additional-services.component';
 
 const appRoutes: Routes = [
   { path: 'profile/:id', component: ProfileComponent },
@@ -63,7 +65,9 @@ const appRoutes: Routes = [
     AirlineDestinationComponent,
     AirlineFlightComponent,
     HotelsEditComponent,
-    HotelUpdateComponent,       
+    HotelUpdateComponent,
+    HotelRoomsComponent,
+    HotelAdditionalServicesComponent,       
   ],
   imports: [
     BrowserModule,

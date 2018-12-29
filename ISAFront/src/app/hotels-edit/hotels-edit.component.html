@@ -5,9 +5,9 @@
 	<div class="row">
 		<div class="col-md-3 ">
 				<div class="list-group ">
-						<button (click)="show_airline()" class="list-group-item list-group-item-action" [class.active]="airline_show">Airline</button>
-            <button (click)="show_destination()" class="list-group-item list-group-item-action" [class.active]="destination_show">Destinations</button> 
-            <button (click)="show_flight()" class="list-group-item list-group-item-action" [class.active]="flight_show">Flights</button>           						                        
+						<button (click)="show_hotel()" class="list-group-item list-group-item-action" [class.active]="hotel_show">Hotel</button>
+            <button (click)="show_rooms()" class="list-group-item list-group-item-action" [class.active]="rooms_show">Rooms</button> 
+            <button (click)="show_additionalServices()" class="list-group-item list-group-item-action" [class.active]="additionalServices_show">Additional Services</button>           						                        
 					</div>					
 		</div>
 		<div class="col-md-9">
@@ -15,15 +15,15 @@
 		        <div class="card-body">
 		            <div class="row">
 		                <div class="col-md-12">
-		                    <h1>Edit airline</h1>
+		                    <h1>Edit hotel</h1>
 		                    <hr>
 		                </div>
 		            </div>
 		            <div class="row">
 		                <div class="col-md-12">
-							<app-airline-update *ngIf="airline_show" [airline]="airline"></app-airline-update>
-              				<app-airline-destination *ngIf="destination_show" [airline]="airline"></app-airline-destination>
-              				<app-airline-flight *ngIf="flight_show" [airline]="airline"></app-airline-flight>
+							<app-hotel-update *ngIf="hotel_show" [hotel]="hotel"></app-hotel-update>
+              				<app-hotel-rooms *ngIf="rooms_show" [hotel]="hotel"></app-hotel-rooms>
+              				<app-hotel-additional-services *ngIf="additionalServices_show" [hotel]="hotel"></app-hotel-additional-services>
 		                </div>
 		            </div>
 		            
