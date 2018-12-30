@@ -10,7 +10,7 @@
             <button (click)="show_additionalServices()" class="list-group-item list-group-item-action" [class.active]="additionalServices_show">Additional Services</button>           						                        
 					</div>					
 		</div>
-		<div class="col-md-9">
+		<div class="col-md-9 desni">
 		    <div class="card">
 		        <div class="card-body">
 		            <div class="row">
@@ -21,7 +21,7 @@
 		            </div>
 		            <div class="row">
 		                <div class="col-md-12">
-							<app-hotel-update *ngIf="hotel_show" [hotel]="hotel"></app-hotel-update>
+							<app-hotel-update  *ngIf="hotel_show" [hotel]="hotel"></app-hotel-update>
               				<app-hotel-rooms *ngIf="rooms_show" [hotel]="hotel"></app-hotel-rooms>
               				<app-hotel-additional-services *ngIf="additionalServices_show" [hotel]="hotel"></app-hotel-additional-services>
 		                </div>

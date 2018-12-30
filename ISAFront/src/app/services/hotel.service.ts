@@ -20,6 +20,6 @@ export class HotelService {
   } 
 
   updateHotel(hotel: Hotel) : Observable<any> {
-    return this.http.put('//localhost:8080/api/hotels/update' + hotel.id, hotel);
+    return this.http.put('//localhost:8080/api/hotels/update/' + hotel.id, hotel);
   }
 }

@@ -50,7 +50,7 @@ public class HotelController {
 	
 	@RequestMapping(value="/update/{id}", method=RequestMethod.PUT)
 	public ResponseEntity<HotelDTO> update(@RequestBody Hotel hotel, @PathVariable Long id) {
-		Hotel oldHotel = hotelService.getOne(id);
+		Hotel oldHotel = hotelService.getOne(id);		
 		if(oldHotel != null) {
 			Hotel newHotel = hotelService.update(oldHotel, hotel);
 			return new ResponseEntity<HotelDTO>(new HotelDTO(newHotel), HttpStatus.OK);

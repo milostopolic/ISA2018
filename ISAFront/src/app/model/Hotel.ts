@@ -7,5 +7,6 @@ export class Hotel {
     address: string;
     description: string;    
     image: string;
+    roomsDTO: Room[];
     pricelistDTO: Pricelist;
   }
