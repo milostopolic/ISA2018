@@ -12,6 +12,13 @@ h1{
     margin: 0% 1% 1% 1%;
 }
 
+#tabela1{
+    width: 50%;
+    margin-right: 500px; 
+    float: left;  
+    overflow-x: none !important;
+}
+
 h3{
     margin: 1% 1% 2% 1%;
 }

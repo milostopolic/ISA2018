@@ -13,7 +13,7 @@ h1{
 }
 
 #tabela2{
-    width: 80%;
+    width: 100%;
     margin: 0% 1% 1% 1%;
 }
 
@@ -27,3 +27,18 @@ h3{
     margin-left: 0.01px;
     margin-bottom: 5px;
 }
+
+.example-h2 {
+    margin: 10px;
+  }
+  
+  .example-section {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    height: 60px;
+  }
+  
+  .example-margin {
+    margin: 0 10px;
+  }

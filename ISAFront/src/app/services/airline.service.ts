@@ -14,6 +14,8 @@ export class AirlineService {
 
   constructor(private http : HttpClient) { }
 
+  /** ------------ Airline servisi ---------- */
+
   getAllAirlines() : Observable<any> {
     return this.http.get('//localhost:8080/api/airlines/all');
   }
@@ -27,6 +29,8 @@ export class AirlineService {
     return this.http.put('//localhost:8080/api/airlines/update/' + airline.id, airline);
   }
 
+  /** ------------ Destination servisi ---------- */
+  
   addDestinationToAirline(id,destination) : Observable<any>{
     return this.http.post('//localhost:8080/api/airlines/addDestination/' + id, destination);
   }
@@ -37,6 +41,19 @@ export class AirlineService {
 
   editDestinationFromAirline(destination) : Observable<any>{
     return this.http.put('//localhost:8080/api/airlines/editDestination/' + destination.id, destination);
+  }
+
+
+  /** ------------ Flight servisi ---------- */
+
+  addFlightToAirline(id,flight) : Observable<any>{
+    return this.http.post('//localhost:8080/api/airlines/addFlight/' + id, flight);
+  }
+
+  /** ------------ Stop servisi ---------- */
+
+  getAllStops() : Observable<any> {
+    return this.http.get('//localhost:8080/api/airlines/allStops');
   }
 
 }

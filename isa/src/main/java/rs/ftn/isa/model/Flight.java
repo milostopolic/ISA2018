@@ -13,6 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -44,9 +45,8 @@ public class Flight {
 	@Column
 	private float distance;
 	
-	@ElementCollection
-	@CollectionTable(name="stops")
-	private List<String> stops;
+	@OneToMany(mappedBy = "flight")
+	private List<Stop> stops;
 	
 	@ManyToOne
 	private Airline airline;
@@ -55,7 +55,7 @@ public class Flight {
 	private float price;
 	
 	public Flight(Long id,String departurePlace, String destination, Date takeOffDate, Date takeOffTime, Date landDate, Date landTime, float distance,
-			List<String> stops, Airline airline, float price) {
+			List<Stop> stops, Airline airline, float price) {
 		super();
 		this.id = id;
 		this.departurePlace = departurePlace;
@@ -126,11 +126,11 @@ public class Flight {
 		this.distance = distance;
 	}
 
-	public List<String> getStops() {
+	public List<Stop> getStops() {
 		return stops;
 	}
 
-	public void setStops(List<String> stops) {
+	public void setStops(List<Stop> stops) {
 		this.stops = stops;
 	}
 

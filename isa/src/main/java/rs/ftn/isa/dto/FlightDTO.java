@@ -1,9 +1,11 @@
 package rs.ftn.isa.dto;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import rs.ftn.isa.model.Flight;
+import rs.ftn.isa.model.Stop;
 
 public class FlightDTO {
 	
@@ -25,7 +27,7 @@ public class FlightDTO {
 	
 	private float price;
 	
-	private List<String> stops;
+	private List<StopDTO> stops;
 	
 	//private AirlineDTO airlineDTO;
 
@@ -44,7 +46,11 @@ public class FlightDTO {
 		this.landTime = f.getLandTime();
 		this.distance = f.getDistance();
 		this.price = f.getPrice();
-		this.stops = f.getStops();
+		//this.stops = f.getStops();
+		this.stops = new ArrayList<StopDTO>();
+		for(Stop s : f.getStops()) {
+			stops.add(new StopDTO(s));
+		}
 		//this.airlineDTO = new AirlineDTO(f.getAirline());
 	}
 
@@ -120,11 +126,11 @@ public class FlightDTO {
 		this.price = price;
 	}
 
-	public List<String> getStops() {
+	public List<StopDTO> getStops() {
 		return stops;
 	}
 
-	public void setStops(List<String> stops) {
+	public void setStops(List<StopDTO> stops) {
 		this.stops = stops;
 	}
 

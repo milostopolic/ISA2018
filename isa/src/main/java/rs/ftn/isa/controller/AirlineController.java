@@ -16,12 +16,18 @@ import org.springframework.web.bind.annotation.RestController;
 
 import rs.ftn.isa.dto.AirlineDTO;
 import rs.ftn.isa.dto.DestinationDTO;
+import rs.ftn.isa.dto.FlightDTO;
+import rs.ftn.isa.dto.StopDTO;
 import rs.ftn.isa.dto.UserDTO;
 import rs.ftn.isa.model.Airline;
 import rs.ftn.isa.model.Destination;
+import rs.ftn.isa.model.Flight;
+import rs.ftn.isa.model.Stop;
 import rs.ftn.isa.model.User;
 import rs.ftn.isa.service.AirlineService;
 import rs.ftn.isa.service.DestinationService;
+import rs.ftn.isa.service.FlightService;
+import rs.ftn.isa.service.StopService;
 
 @RestController
 @RequestMapping("/api/airlines")
@@ -33,6 +39,12 @@ public class AirlineController {
 	
 	@Autowired
 	private DestinationService destinationService;
+	
+	@Autowired
+	private FlightService flightService;
+	
+	@Autowired
+	private StopService stopService;
 	
 	@RequestMapping("/{id}")
 	public ResponseEntity<AirlineDTO> getAirlineById(@PathVariable Long id) {
@@ -81,6 +93,8 @@ public class AirlineController {
 		return new ResponseEntity<AirlineDTO>(new AirlineDTO(air), HttpStatus.CREATED);
 	}
 	
+							/* DESTINATION CONTROLLER */
+	
 	@RequestMapping(value = "/addDestination/{id}", method = RequestMethod.POST, 
 			consumes = MediaType.APPLICATION_JSON_VALUE, 
 			produces = MediaType.APPLICATION_JSON_VALUE)	
@@ -119,7 +133,47 @@ public class AirlineController {
 			return null;
 		}
 	}
+	
+							/* STOP CONTROLLER */
+	
+	@RequestMapping(value="/allStops")
+		public ResponseEntity<List<StopDTO>> getAllStops(){
+		List<Stop> stops = stopService.getAll();
+		if(stops != null) {
+			List<StopDTO> stopsDTO = new ArrayList<>();
+			for(Stop s : stops) {
+				stopsDTO.add(new StopDTO(s));
+			}
+			return new ResponseEntity<List<StopDTO>>(stopsDTO, HttpStatus.OK);
+		}
+		return null;
+	}
+	
+							/* FLIGHT CONTROLLER */
+	
+	@RequestMapping(value = "/addFlight/{id}", method = RequestMethod.POST, 
+			consumes = MediaType.APPLICATION_JSON_VALUE, 
+			produces = MediaType.APPLICATION_JSON_VALUE)	
+		public ResponseEntity<FlightDTO> addFlightToAirline(@RequestBody FlightDTO fligDTO, @PathVariable Long id){
+			Flight flig = new Flight();
+			flig.setDeparturePlace(fligDTO.getDeparturePlace());
+			flig.setDestination(fligDTO.getDestination());
+			flig.setTakeOffDate(fligDTO.getTakeOffDate());
+			flig.setTakeOffTime(fligDTO.getTakeOffTime());
+			flig.setLandDate(fligDTO.getLandDate());
+			flig.setLandTime(fligDTO.getLandTime());
+			flig.setDistance(fligDTO.getDistance());
+			flig.setStops(new ArrayList<Stop>()); //za sad ovde ide prazna lista, treba promeniti
+			flig.setPrice(fligDTO.getPrice());
+			Airline air = airlineService.getOne(id);
+			flig.setAirline(air);
+			flig = flightService.save(flig);
+			air.getFlights().add(flig);
+			air = airlineService.save(air);
+			
+			return new ResponseEntity<FlightDTO>(new FlightDTO(flig), HttpStatus.CREATED);
 		
+	}	
 		
 
 }
