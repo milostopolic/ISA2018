@@ -20,4 +20,15 @@ export class AdditionalserviceService {
   getAdditionalSevricesByPricelistId(id) : Observable<any> {
     return this.http.get('//localhost:8080/api/additionalservices/allbypricelist/' + id);
   }
+
+  deleteAdditionalService(id) : Observable<any> {
+    return this.http.delete('//localhost:8080/api/additionalservices/delete/' + id);
+  }
+
+
+
+
+  deleteDestinationFromAirline(id) : Observable<any>{
+    return this.http.delete('//localhost:8080/api/airlines/deleteDestination/' + id);
+  }
 }

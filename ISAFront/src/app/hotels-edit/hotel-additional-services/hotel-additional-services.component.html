@@ -15,10 +15,63 @@
           <td>{{additionalService.name}}</td>
           <td>{{additionalService.price}}</td>          
           <td><button (click) = "editAdditionalService(additionalService)" mat-raised-button data-toggle="modal" data-target="#exampleModal" color="primary">Edit</button></td>
-          <td><button (click) = "deleteAdditionalService(additionalService)" mat-raised-button color="primary">Delete</button></td>
+          <td><button (click) = "setDeletingAS(additionalService)" mat-raised-button color="primary" data-toggle="modal" data-target="#deleteModal">Delete</button></td>
         </tr>
       </tbody>
     </table>
     
   </div>
-  <button (click) = "addAdditionalService()" style="margin-bottom:5px;margin-left:10px" mat-raised-button data-toggle="modal" data-target="#exampleModal" color="primary">Add</button>
+  <button (click) = "addAdditionalService()" style="margin-bottom:5px;margin-left:10px" mat-raised-button data-toggle="modal" data-target="#addModal" color="primary">Add</button>
+
+
+  <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Deleting addidional service</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Are you sure you want to delete {{deletingAS.id}} - {{ deletingAS.name }}?
+        </div>
+        <div class="modal-footer" style="text-align:left">
+          <button mat-raised-button data-dismiss="modal" style="margin-right:10px">No</button>
+          <button (click)="deleteAdditionalService()" data-dismiss="modal" mat-raised-button color="primary">Yes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Add addidional service</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+        
+          <div class="example-container">
+            <mat-form-field>
+              <input matInput placeholder="Name" [formControl]="name">
+            </mat-form-field>
+          
+            <mat-form-field>
+              <input matInput placeholder="Price" [formControl]="price">
+            </mat-form-field>            
+          </div>
+
+        </div>
+        <div class="modal-footer" style="text-align:left">
+          <button mat-raised-button data-dismiss="modal" style="margin-right:10px">Close</button>
+          <button (click)="addAdditionalService()" data-dismiss="modal" mat-raised-button color="primary">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import rs.ftn.isa.dto.AdditionalServiceDTO;
@@ -57,6 +58,13 @@ public class AdditionalServiceController {
 			return new ResponseEntity<List<AdditionalServiceDTO>>(asDTO, HttpStatus.OK);
 		}
 		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+	}
+	
+	
+	@RequestMapping(value="/delete/{id}", method=RequestMethod.DELETE)
+	public ResponseEntity<?> deleteAdditionalService(@PathVariable Long id) {
+		additionalServiceService.delete(additionalServiceService.getOne(id));
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
 	

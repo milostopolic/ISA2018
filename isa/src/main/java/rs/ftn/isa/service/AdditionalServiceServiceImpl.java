@@ -33,4 +33,9 @@ public class AdditionalServiceServiceImpl implements AdditionalServiceService {
 		return additionalServiceRepository.save(additionalService);
 	}
 
+	@Override
+	public void delete(AdditionalService additionalService) {
+		additionalServiceRepository.delete(additionalService);		
+	}
+
 }

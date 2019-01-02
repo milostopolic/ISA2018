@@ -13,5 +13,6 @@ public interface AdditionalServiceService {
 	List<AdditionalService> getAll();
 	List<AdditionalService> findByPricelist_Id(Long id);
 	AdditionalService save(AdditionalService additionalService);
+	void delete(AdditionalService additionalService);
 
 }
