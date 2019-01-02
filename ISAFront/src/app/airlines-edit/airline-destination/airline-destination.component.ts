@@ -31,7 +31,7 @@ export class AirlineDestinationComponent implements OnInit {
 
     this.airlineService.addDestinationToAirline(this.id,this.dest).subscribe(data => {
       this.temp = data;
-        this.destinations_temp.push(this.temp);
+      this.destinations_temp.push(this.temp);
     })
       
   }

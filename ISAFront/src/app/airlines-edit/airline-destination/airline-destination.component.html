@@ -1,9 +1,3 @@
-
-  <div class="row header" style="border-bottom-width: 1px;height:30px;">
-  <h3 style="float:left;line-height:30px;">Destinations</h3>
-  <td><button (click)="addDestination()" style="float:right;" mat-raised-button data-toggle="modal" data-target="#exampleModalCenter" color="primary">Add</button></td>
-  </div>
-  <br/>
   <div class="table-responsive" style="overflow-x: unset !important;">
     <table class="table table-striped table-sm" id="tabela1">
       <thead>
@@ -22,6 +16,7 @@
       </tbody>
     </table>
     </div>
+    <button (click)="addDestination()" style="margin-bottom:5px;margin-left:10px" mat-raised-button data-toggle="modal" data-target="#exampleModalCenter" color="primary">Add</button>
 
 <!-- Modal add -->
 <div *ngIf="flag" class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle">

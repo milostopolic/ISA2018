@@ -24,3 +24,13 @@ h3{
 #btnAdd{
     margin: 5% 5% 5% 30%;
 }
+
+.desni{
+    border: 0.5px solid rgb(238, 238, 238);
+    border-radius: 10px;
+    width: 1050px;
+}
+
+.levi{
+    margin-left: -200px !important;
+}

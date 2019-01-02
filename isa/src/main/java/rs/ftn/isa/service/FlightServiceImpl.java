@@ -24,4 +24,10 @@ public class FlightServiceImpl implements FlightService {
 		return flightRepository.save(flight);
 	}
 
+	@Override
+	public void delete(Flight flight) {
+		// TODO Auto-generated method stub
+		flightRepository.delete(flight);
+	}
+
 }

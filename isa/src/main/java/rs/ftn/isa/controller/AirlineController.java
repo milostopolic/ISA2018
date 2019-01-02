@@ -171,9 +171,14 @@ public class AirlineController {
 			air.getFlights().add(flig);
 			air = airlineService.save(air);
 			
-			return new ResponseEntity<FlightDTO>(new FlightDTO(flig), HttpStatus.CREATED);
-		
+			return new ResponseEntity<FlightDTO>(new FlightDTO(flig), HttpStatus.CREATED);		
 	}	
+	
+	@RequestMapping(value="/deleteFlight/{id}", method = RequestMethod.DELETE)
+	public ResponseEntity<?> deleteFlight(@PathVariable Long id) {
+		flightService.delete(flightService.getOne(id));
+		return new ResponseEntity<>(HttpStatus.OK);
+	}
 		
 
 }

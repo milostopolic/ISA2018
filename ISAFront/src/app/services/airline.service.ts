@@ -50,6 +50,10 @@ export class AirlineService {
     return this.http.post('//localhost:8080/api/airlines/addFlight/' + id, flight);
   }
 
+  deleteFlightFromAirline(id) : Observable<any>{
+    return this.http.delete('//localhost:8080/api/airlines/deleteFlight/' + id);
+  }
+
   /** ------------ Stop servisi ---------- */
 
   getAllStops() : Observable<any> {

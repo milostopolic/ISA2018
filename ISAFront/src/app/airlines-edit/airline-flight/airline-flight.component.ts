@@ -62,11 +62,14 @@ export class AirlineFlightComponent implements OnInit {
     this.flig.distance = this.distance.value;
     this.flig.stops = this.stop_list;   /* za sad praznu listu stopova posalje */
     this.flig.price = this.price.value;
-
+    
     this.airlineService.addFlightToAirline(this.id, this.flig).subscribe(data => {
+      window.location.reload();
       this.temp2 = data;
       this.flig_temp.push(this.temp2);
     })
+
+
   }
 
   addFlight(){
@@ -75,6 +78,14 @@ export class AirlineFlightComponent implements OnInit {
 
   deleteFlight(flight){
     alert(flight.id);
+    this.airlineService.deleteFlightFromAirline(flight.id).subscribe(data =>{
+      
+    })
+
+    const index: number = this.flig_temp.indexOf(flight);
+    if (index !== -1) {
+        this.flig_temp.splice(index, 1);
+    }
   }
 
   editFlight(flight){
@@ -87,7 +98,8 @@ export class AirlineFlightComponent implements OnInit {
     this.id = this.router.snapshot.params.id;
     this.airlineService.getAirlineById(this.id).subscribe(data => { 
         this.airline = data; 
-        this.flights = data.flightsDTO; 
+        this.flights = data.flightsDTO;        
+       
     });
     this.airlineService.getAllStops().subscribe(data => {
        this.stop_list = data; });
