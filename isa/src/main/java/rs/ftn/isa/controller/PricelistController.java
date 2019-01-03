@@ -17,7 +17,7 @@ import rs.ftn.isa.service.PricelistService;
 
 @RestController
 @RequestMapping("/api/pricelists")
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
 public class PricelistController {
 
 	@Autowired

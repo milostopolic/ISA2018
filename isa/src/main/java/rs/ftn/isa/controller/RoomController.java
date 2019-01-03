@@ -18,7 +18,7 @@ import rs.ftn.isa.service.RoomService;
 
 @RestController
 @RequestMapping("/api/rooms")
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
 public class RoomController {
 	
 	@Autowired
@@ -43,7 +43,7 @@ public class RoomController {
 		Room newRoom = new Room();
 		if(roomDTO != null) {
 			Hotel hotel = hotelService.getOne(id);
-			
+			System.out.println("USAO U IFF");
 			newRoom.setBeds(roomDTO.getBeds());
 			newRoom.setPrice(roomDTO.getPrice());
 			newRoom.setHotel(hotel);
@@ -57,6 +57,7 @@ public class RoomController {
 			RoomDTO newRoomDTO = new RoomDTO(newRoom);
 			return new ResponseEntity<RoomDTO>(newRoomDTO, HttpStatus.OK);
 		}
+		System.out.println("NIJE USAO U IFF");
 		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	}
 	

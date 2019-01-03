@@ -21,7 +21,7 @@ import rs.ftn.isa.service.HotelService;
 
 @RestController
 @RequestMapping("/api/additionalservices")
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
 public class AdditionalServiceController {
 
 	@Autowired

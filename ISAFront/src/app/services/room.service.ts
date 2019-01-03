@@ -18,7 +18,7 @@ deleteRoom(id) : Observable<any> {
 }
 
 addRoom(id, room) : Observable<any> {
-  return this.http.post('//localhost:8080/api/room/add/' + id, room);
+  return this.http.post('//localhost:8080/api/rooms/add/' + id, room);
 }
 
 editRoom(room) : Observable<any> {

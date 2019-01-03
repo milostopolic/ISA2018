@@ -17,7 +17,7 @@ import rs.ftn.isa.service.RentACarService;
 
 @RestController
 @RequestMapping("/api/rentacars")
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
 public class RentACarController {
 	
 	@Autowired
