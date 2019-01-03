@@ -31,6 +31,7 @@ import { HotelsEditComponent } from './hotels-edit/hotels-edit.component';
 import { HotelUpdateComponent } from './hotels-edit/hotel-update/hotel-update.component';
 import { HotelRoomsComponent } from './hotels-edit/hotel-rooms/hotel-rooms.component';
 import { HotelAdditionalServicesComponent } from './hotels-edit/hotel-additional-services/hotel-additional-services.component';
+import { DatePipe } from '@angular/common'
 
 const appRoutes: Routes = [
   { path: 'profile/:id', component: ProfileComponent },
@@ -81,7 +82,7 @@ const appRoutes: Routes = [
       { enableTracing: true }
     )
   ],
-  providers: [ProfileService, HotelService, AirlineService, RentacarService],
+  providers: [ProfileService, HotelService, AirlineService, RentacarService, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

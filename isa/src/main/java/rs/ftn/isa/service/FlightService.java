@@ -7,5 +7,6 @@ public interface FlightService {
 	Flight getOne(Long id);
 	Flight save(Flight flight);
 	void delete(Flight flight);
+	Flight update(Flight oldFlight, Flight newFlight);
 	
 }

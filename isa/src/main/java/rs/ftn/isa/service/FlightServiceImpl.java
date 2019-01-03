@@ -1,9 +1,12 @@
 package rs.ftn.isa.service;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import rs.ftn.isa.model.Flight;
+import rs.ftn.isa.model.Stop;
 import rs.ftn.isa.repository.FlightRepository;
 
 @Service
@@ -28,6 +31,42 @@ public class FlightServiceImpl implements FlightService {
 	public void delete(Flight flight) {
 		// TODO Auto-generated method stub
 		flightRepository.delete(flight);
+	}
+
+	@Override
+	public Flight update(Flight oldFlight, Flight newFlight) {
+		// TODO Auto-generated method stub
+		if(newFlight.getDeparturePlace() != null) {
+			oldFlight.setDeparturePlace(newFlight.getDeparturePlace());
+		}
+		if(newFlight.getDestination() != null) {
+			oldFlight.setDestination(newFlight.getDestination());
+		}
+		if(newFlight.getTakeOffDate() != null) {
+			oldFlight.setTakeOffDate(newFlight.getTakeOffDate());
+		}
+		if(newFlight.getTakeOffTime() != null) {
+			oldFlight.setTakeOffTime(newFlight.getTakeOffTime());
+		}
+		if(newFlight.getLandDate() != null) {
+			oldFlight.setLandDate(newFlight.getLandDate());
+		}
+		if(newFlight.getLandTime() != null) {
+			oldFlight.setLandTime(newFlight.getLandTime());
+		}
+		if(newFlight.getDistance() != 0) {
+			oldFlight.setDistance(newFlight.getDistance());
+		}
+		if(newFlight.getDistance() != 0) {
+			oldFlight.setDistance(newFlight.getDistance());
+		}
+		oldFlight.setStops(new ArrayList<Stop>()); // ovde stopovi impl
+		if(newFlight.getPrice() != 0) {
+			oldFlight.setPrice(newFlight.getPrice());
+		}
+		
+		
+		return flightRepository.save(oldFlight);
 	}
 
 }
