@@ -40,8 +40,7 @@ export class HotelAdditionalServicesComponent implements OnInit {
   setEditingAS(additionalService) {
     this.editingAS = additionalService;
     this.name.setValue(this.editingAS.name);
-    this.price.setValue(this.editingAS.price);
-    alert(this.editingAS.id);
+    this.price.setValue(this.editingAS.price);    
   }
 
   editAdditionalService() {

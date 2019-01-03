@@ -48,6 +48,22 @@ public class HotelController {
 		return null;
 	}
 	
+	/*@RequestMapping(value="/update/{id}", method=RequestMethod.PUT)
+	public ResponseEntity<HotelDTO> update(@RequestBody Hotel hotelDTO, @PathVariable Long id) {
+		Hotel hotel = hotelService.getOne(id);		
+		if(hotelDTO != null) {
+			hotel.setName(hotelDTO.getName());
+			hotel.setAddress(hotelDTO.getAddress());
+			hotel.setDescription(hotelDTO.getDescription());
+			
+			hotelService.save(hotel);
+			
+			HotelDTO newHotelDTO = new HotelDTO(hotel);
+			return new ResponseEntity<HotelDTO>(newHotelDTO, HttpStatus.OK);
+		}
+		return null;
+	}*/
+	
 	@RequestMapping(value="/update/{id}", method=RequestMethod.PUT)
 	public ResponseEntity<HotelDTO> update(@RequestBody Hotel hotel, @PathVariable Long id) {
 		Hotel oldHotel = hotelService.getOne(id);		

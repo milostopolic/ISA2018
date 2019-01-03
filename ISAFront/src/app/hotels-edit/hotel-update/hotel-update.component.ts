@@ -19,9 +19,9 @@ export class HotelUpdateComponent implements OnInit {
   description = new FormControl("");
 
   fillValues() {
-    this.hotelEdit.name = this.name.value;
-    this.hotelEdit.address = this.address.value;
-    this.hotelEdit.description = this.description.value;
+    this.hotel.name = this.name.value;
+    this.hotel.address = this.address.value;
+    this.hotel.description = this.description.value;
   }
 
   setValues() {
@@ -32,12 +32,12 @@ export class HotelUpdateComponent implements OnInit {
 
   updateBtn() {
     this.fillValues();
-    this.hotelEdit.id = this.hotel.id;
-    this.hotelService.updateHotel(this.hotelEdit).subscribe(response => {
-      this.hotelEdit = response;
-      this.name.setValue(this.hotelEdit.name);
-      this.address.setValue(this.hotelEdit.address);
-      this.description.setValue(this.hotelEdit.description);
+    //this.hotelEdit.id = this.hotel.id;
+    this.hotelService.updateHotel(this.hotel).subscribe(data => {
+      //this.hotelEdit = data;
+      this.name.setValue(this.hotel.name);
+      this.address.setValue(this.hotel.address);
+      this.description.setValue(this.hotel.description);
     });
     //window.location.reload();
   }
