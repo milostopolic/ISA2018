@@ -28,7 +28,7 @@ export class AirlineFlightComponent implements OnInit {
   distance = new FormControl("");
   stops = new FormControl("");
   price = new FormControl("");
-  flig : Flight = new Flight();
+  //flig : Flight = new Flight();
   temp2 :Flight = new Flight();
   flig_temp : Flight[] = [];
   stop_list: Stop[] = [];
@@ -53,20 +53,21 @@ export class AirlineFlightComponent implements OnInit {
         alert(temps[i]);
       }
     }*/
-    this.flig.departurePlace = this.departurePlace.value;
-    this.flig.destination = this.destination.value;
-    this.flig.takeOffDate = this.takeOffDate.value;
-    this.flig.takeOffTime = this.takeOffTime.value;
-    this.flig.landDate = this.landDate.value;
-    this.flig.landTime = this.landTime.value;
-    this.flig.distance = this.distance.value;
-    this.flig.stops = this.stop_list;   /* za sad praznu listu stopova posalje */
-    this.flig.price = this.price.value;
+    var flig : Flight = new Flight();
+    flig.departurePlace = this.departurePlace.value;
+    flig.destination = this.destination.value;
+    flig.takeOffDate = this.takeOffDate.value;
+    flig.takeOffTime = this.takeOffTime.value;
+    flig.landDate = this.landDate.value;
+    flig.landTime = this.landTime.value;
+    flig.distance = this.distance.value;
+    flig.stops = this.stop_list;   /* za sad praznu listu stopova posalje */
+    flig.price = this.price.value;
     
-    this.airlineService.addFlightToAirline(this.id, this.flig).subscribe(data => {
-      window.location.reload();
-      this.temp2 = data;
-      this.flig_temp.push(this.temp2);
+    this.airlineService.addFlightToAirline(this.id, flig).subscribe(data => {
+      /*this.temp2 = data;
+      this.flig_temp.push(this.temp2);*/
+      this.flights.push(data);
     })
 
 
@@ -82,9 +83,9 @@ export class AirlineFlightComponent implements OnInit {
       
     })
 
-    const index: number = this.flig_temp.indexOf(flight);
+    const index: number = this.flights.indexOf(flight);
     if (index !== -1) {
-        this.flig_temp.splice(index, 1);
+        this.flights.splice(index, 1);
     }
   }
 
