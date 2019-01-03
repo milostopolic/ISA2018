@@ -16,18 +16,42 @@ export class HotelAdditionalServicesComponent implements OnInit {
   @Input() hotel : Hotel;
   additionalServices : Additionalservice[];
   editingAS : Additionalservice = new Additionalservice();
-  deletingAS : Additionalservice = new Additionalservice();
+  deletingAS : Additionalservice = new Additionalservice();  
   
   name = new FormControl("");
   price = new FormControl("");
 
-  addAdditionalService() {
-    alert('brao, ' + this.name.value + this.price.value);
+  resetInputs() {    
+    this.name.setValue("");
+    this.price.setValue("");
   }
 
-  editAdditionalService(additionalService) {
+  addAdditionalService() {    
+    var newAS = new Additionalservice();
+    newAS.name = this.name.value;
+    newAS.price = this.price.value;
+
+    this.additionalServiceService.addAdditionalService(this.hotel.id, newAS).subscribe(data => {this.additionalServices.push(data)});
+    
+    this.name.setValue("");
+    this.price.setValue("");
+  }
+
+  setEditingAS(additionalService) {
     this.editingAS = additionalService;
+    this.name.setValue(this.editingAS.name);
+    this.price.setValue(this.editingAS.price);
     alert(this.editingAS.id);
+  }
+
+  editAdditionalService() {
+    this.editingAS.name = this.name.value;
+    this.editingAS.price = this.price.value;
+
+    this.additionalServiceService.editAdditionalService(this.editingAS).subscribe(data => {});
+
+    this.name.setValue("");
+    this.price.setValue("");
   }
 
   setDeletingAS(additionalService) {

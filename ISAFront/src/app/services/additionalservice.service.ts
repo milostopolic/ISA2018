@@ -25,10 +25,13 @@ export class AdditionalserviceService {
     return this.http.delete('//localhost:8080/api/additionalservices/delete/' + id);
   }
 
-
-
-
-  deleteDestinationFromAirline(id) : Observable<any>{
-    return this.http.delete('//localhost:8080/api/airlines/deleteDestination/' + id);
+  addAdditionalService(id, additionalService) : Observable<any> {
+    return this.http.post('//localhost:8080/api/additionalservices/add/' + id, additionalService);
   }
+
+  editAdditionalService(additionalService) : Observable<any> {
+    return this.http.put('//localhost:8080/api/additionalservices/edit/' + additionalService.id, additionalService);
+  }
+
+  
 }

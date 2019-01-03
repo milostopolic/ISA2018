@@ -23,6 +23,10 @@ public class AdditionalServiceDTO {
 		this.price = as.getPrice();
 		this.parentID = as.getPricelist().getId();
 	}
+	
+	public AdditionalServiceDTO() {
+		
+	}
 
 
 	public Long getId() {

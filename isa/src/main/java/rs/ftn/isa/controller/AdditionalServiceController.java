@@ -8,13 +8,16 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import rs.ftn.isa.dto.AdditionalServiceDTO;
 import rs.ftn.isa.model.AdditionalService;
+import rs.ftn.isa.model.Hotel;
 import rs.ftn.isa.service.AdditionalServiceService;
+import rs.ftn.isa.service.HotelService;
 
 @RestController
 @RequestMapping("/api/additionalservices")
@@ -23,6 +26,9 @@ public class AdditionalServiceController {
 
 	@Autowired
 	private AdditionalServiceService additionalServiceService;
+	
+	@Autowired
+	private HotelService hotelService;
 	
 	@RequestMapping("/allbypricelist/{id}")
 	public ResponseEntity<List<AdditionalServiceDTO>> getAllByPricelistId(@PathVariable Long id) {
@@ -67,6 +73,43 @@ public class AdditionalServiceController {
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
+	@RequestMapping(value="/add/{id}", method=RequestMethod.POST)
+	public ResponseEntity<AdditionalServiceDTO> addAdditionalService(@RequestBody AdditionalServiceDTO asDTO, @PathVariable Long id) {
+		AdditionalService newAS = new AdditionalService();
+		if(asDTO != null) {
+			Hotel hotel = hotelService.getOne(id);
+			
+			newAS.setName(asDTO.getName());
+			newAS.setPrice(asDTO.getPrice());
+			newAS.setPricelist(hotel.getPricelist());
+			
+			additionalServiceService.save(newAS);
+			
+			hotel.getPricelist().getAdditionalServices().add(newAS);
+			
+			hotelService.save(hotel);
+			
+			AdditionalServiceDTO newAsDTO = new AdditionalServiceDTO(newAS);
+			return new ResponseEntity<AdditionalServiceDTO>(newAsDTO, HttpStatus.OK);		
+		}
+		
+		return null;
+	}
 	
+	@RequestMapping(value="/edit/{id}", method=RequestMethod.PUT)
+	public ResponseEntity<AdditionalServiceDTO> editAdditionalService(@RequestBody AdditionalService asDTO, @PathVariable Long id) {
+		AdditionalService additionalService = additionalServiceService.getOne(id);
+		if(asDTO != null) {
+			additionalService.setName(asDTO.getName());
+			additionalService.setPrice(asDTO.getPrice());
+			
+			additionalServiceService.save(additionalService);
+			
+			AdditionalServiceDTO newAsDTO = new AdditionalServiceDTO(additionalService);
+			return new ResponseEntity<AdditionalServiceDTO>(newAsDTO, HttpStatus.OK);
+		}
+		
+		return null;
+	}
 	
 }
