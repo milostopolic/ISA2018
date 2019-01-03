@@ -54,6 +54,10 @@ export class AirlineService {
     return this.http.delete('//localhost:8080/api/airlines/deleteFlight/' + id);
   }
 
+  editFlightFromAirline(flight) : Observable<any>{
+    return this.http.put('//localhost:8080/api/airlines/editFlight/' + flight.id, flight);
+  }
+
   /** ------------ Stop servisi ---------- */
 
   getAllStops() : Observable<any> {

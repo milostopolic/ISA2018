@@ -179,6 +179,18 @@ public class AirlineController {
 		flightService.delete(flightService.getOne(id));
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
+	
+	@RequestMapping(value="/editFlight/{id}", method=RequestMethod.PUT)
+	public ResponseEntity<FlightDTO> update(@RequestBody Flight flight, @PathVariable Long id){
+		Flight oldFlight = flightService.getOne(id);
+		//Airline airl = airlineService.getOne(oldFlight.getAirline().getId());
+		if(oldFlight != null) {			
+			Flight newFlight = flightService.update(oldFlight, flight);
+			return new ResponseEntity<FlightDTO>(new FlightDTO(newFlight), HttpStatus.OK);
+		}else {
+			return null;
+		}
+	}
 		
 
 }

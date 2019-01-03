@@ -26,9 +26,9 @@
           <td>{{flight.landDate}}</td>
           <td>{{flight.landTime}}</td>
           <td>{{flight.distance}}</td>        
-          <td><span *ngFor="let temp of flight.stops">{{temp.name}}<br/></span></td>
+          <td><span *ngFor="let stop of flight.stops">{{stop.name}}<br/></span></td>
           <td>{{flight.price}}</td>
-          <td><button (click) = "editFlight(flight)" mat-raised-button data-toggle="modal" data-target="#exampleModal" color="primary">Edit</button></td>
+          <td><button (click) = "fillValuesFlight(flight)" mat-raised-button data-toggle="modal" data-target="#exampleModalCenterEdit" color="primary">Edit</button></td>
           <td><button (click) = "deleteFlight(flight)" mat-raised-button color="primary">Delete</button></td>
         </tr>
       </tbody>
@@ -111,3 +111,79 @@
     </div>
   </div>
 </div>
+
+ <!-- Modal edit -->
+ <div class="modal fade" id="exampleModalCenterEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header" style="border-bottom: none !important;">
+          <h5 style="float:left !important;margin-left: -10px !important; margin-top: -10px !important;">Add flight</h5>
+          <button style="text-align: right;" type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form class="formaGore">                             
+            <div class="form-group row">
+              <label for="name" class="col-4 col-form-label">Departure place:</label> 
+              <div class="col-8">
+                <input id="name" name="name" [formControl]="departurePlace" class="form-control here" type="text">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="name" class="col-4 col-form-label">Destination name:</label> 
+              <div class="col-8">
+                <input id="name" name="name" [formControl]="destination" class="form-control here" type="text">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="name" class="col-4 col-form-label">Take off date:</label> 
+              <div class="col-8">
+                <input id="name" name="name" [formControl]="takeOffDate" class="form-control here" type="text">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="name" class="col-4 col-form-label">Take off time:</label> 
+              <div class="col-8">
+                <input id="name" name="name" [formControl]="takeOffTime" class="form-control here" type="text">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="name" class="col-4 col-form-label">Land date:</label> 
+              <div class="col-8">
+                <input id="name" name="name" [formControl]="landDate" class="form-control here" type="text">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="name" class="col-4 col-form-label">Land time:</label> 
+              <div class="col-8">
+                <input id="name" name="name" [formControl]="landTime" class="form-control here" type="text">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="name" class="col-4 col-form-label">Distance:</label> 
+              <div class="col-8">
+                <input id="name" name="name" [formControl]="distance" class="form-control here" type="text">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="name" class="col-4 col-form-label">Stops:</label> 
+              <div class="col-8" *ngFor="let stop of stop_list">
+                <input type="checkbox" class="{{stop.name}}" name="stop" value="{{stop.name}}">{{stop.name}}<br>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="name" class="col-4 col-form-label">Price:</label> 
+              <div class="col-8">
+                <input id="name" name="name" [formControl]="price" class="form-control here" type="text">
+              </div>
+            </div>                                       
+          </form>
+        </div>
+        <div class="modal-footer" style="border-top: none !important;">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" (click)="editFlight()" class="btn btn-primary" data-dismiss="modal">Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
