@@ -3,3 +3,23 @@
 
   {{profile.name}}
 </p>
+
+<h1>Friends</h1>
+<div *ngFor="let friend of friends_list"> 
+    {{friend.name}} <button (click)="DeleteFriend(friend)">Delete</button>
+</div>
+
+    
+
+
+<h1>Pending</h1>
+<div *ngFor="let pn of pending_list">
+  {{pn.name}} <button (click)="AcceptFriendRequest(pn)" class="mr-2"  mat-raised-button color="primary">Accept</button> <button (click)="DeclineFriendRequest(pn)" mat-raised-button color="warn">Decline</button>
+</div>
+
+<h1>Suggested</h1>
+<div *ngFor="let sg of suggested_list">
+  {{sg.name}} <button (click)="SendRequest(sg)" class="mr-2"  mat-raised-button color="primary">Send request</button> <button (click)="HideSuggested(sg)" mat-raised-button color="warn">Hide</button>
+</div>
+
+

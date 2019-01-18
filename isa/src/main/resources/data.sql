@@ -1,7 +1,22 @@
 insert into user(id,name,surname,email,password,address,phone_nmbr,verified) values (1, "Pera", "Peric", "asds@gmail.com", "pass", "novi asd", "0213231", false); 
-insert into user(id,name,surname,email,password,address,phone_nmbr,verified) values (2, "Mika", "Peric", "asds@gmail.com", "pass", "novi asd", "0213231", false); 
-insert into user(id,name,surname,email,password,address,phone_nmbr,verified) values (3, "Zika", "Peric", "asds@gmail.com", "pass", "novi asd", "0213231", false); 
-insert into user(id,name,surname,email,password,address,phone_nmbr,verified) values (4, "Pare", "Peric", "asds@gmail.com", "pass", "novi asd", "0213231", false);
+insert into user(id,name,surname,email,password,address,phone_nmbr,verified) values (2, "Mika", "Mikic", "asds@gmail.com", "pass", "novi asd", "0213231", false); 
+insert into user(id,name,surname,email,password,address,phone_nmbr,verified) values (3, "Zika", "Zikic", "asds@gmail.com", "pass", "novi asd", "0213231", false); 
+insert into user(id,name,surname,email,password,address,phone_nmbr,verified) values (4, "Pare", "Paric", "asds@gmail.com", "pass", "novi asd", "0213231", false);
+insert into user(id,name,surname,email,password,address,phone_nmbr,verified) values (5, "Pupe", "Pupic", "asds@gmail.com", "pass", "novi asd", "0213231", false); 
+insert into user(id,name,surname,email,password,address,phone_nmbr,verified) values (6, "Milan", "Milic", "asds@gmail.com", "pass", "novi asd", "0213231", false); 
+insert into user(id,name,surname,email,password,address,phone_nmbr,verified) values (7, "Zare", "Zarkovic", "asds@gmail.com", "pass", "novi asd", "0213231", false); 
+insert into user(id,name,surname,email,password,address,phone_nmbr,verified) values (8, "Mila", "Milic", "asds@gmail.com", "pass", "novi asd", "0213231", false);
+
+
+INSERT INTO friendship(confirm,status,receiver_id,sender_id) VALUES ('?',0,1,2);
+INSERT INTO friendship(confirm,status,receiver_id,sender_id) VALUES ('?',1,1,3);
+INSERT INTO friendship(confirm,status,receiver_id,sender_id) VALUES ('?',1,2,3);
+INSERT INTO friendship(confirm,status,receiver_id,sender_id) VALUES ('?',1,1,4);
+INSERT INTO friendship(confirm,status,receiver_id,sender_id) VALUES ('?',1,2,6);
+INSERT INTO friendship(confirm,status,receiver_id,sender_id) VALUES ('?',0,1,7);
+INSERT INTO friendship(confirm,status,receiver_id,sender_id) VALUES ('?',0,1,6);
+INSERT INTO friendship(confirm,status,receiver_id,sender_id) VALUES ('?',2,1,5);
+
 
 insert into hotel(id,name,address,description,image) values (1, "Palisad", "Zlatibor", "Lep hotel", "../../assets/img/palisad.jpg");
 insert into hotel(id,name,address,description,image) values (2, "Park", "Novi Sad", "Sajmiste", "../../assets/img/park.jpg");  

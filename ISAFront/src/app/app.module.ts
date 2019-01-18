@@ -31,7 +31,9 @@ import { HotelsEditComponent } from './hotels-edit/hotels-edit.component';
 import { HotelUpdateComponent } from './hotels-edit/hotel-update/hotel-update.component';
 import { HotelRoomsComponent } from './hotels-edit/hotel-rooms/hotel-rooms.component';
 import { HotelAdditionalServicesComponent } from './hotels-edit/hotel-additional-services/hotel-additional-services.component';
-import { DatePipe } from '@angular/common'
+import { DatePipe } from '@angular/common';
+import { FriendshipComponent } from './model/friendship/friendship.component';
+import { NgAisModule } from 'angular-instantsearch';
 
 const appRoutes: Routes = [
   { path: 'profile/:id', component: ProfileComponent },
@@ -68,7 +70,8 @@ const appRoutes: Routes = [
     HotelsEditComponent,
     HotelUpdateComponent,
     HotelRoomsComponent,
-    HotelAdditionalServicesComponent,       
+    HotelAdditionalServicesComponent,
+    FriendshipComponent,       
   ],
   imports: [
     BrowserModule,
@@ -80,7 +83,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true }
-    )
+    ),
+    NgAisModule.forRoot()
   ],
   providers: [ProfileService, HotelService, AirlineService, RentacarService, DatePipe],
   bootstrap: [AppComponent]

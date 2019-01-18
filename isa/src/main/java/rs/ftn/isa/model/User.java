@@ -1,10 +1,15 @@
 package rs.ftn.isa.model;
 
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class User {
@@ -33,8 +38,13 @@ public class User {
 	
 	@Column
 	private boolean verified;
-
 	
+	@OneToMany(mappedBy = "sender")
+	private Set<Friendship> friendship = new HashSet<Friendship>();;
+
+	@OneToMany(mappedBy = "receiver")
+	private Set<Friendship> friendshipReceiver = new HashSet<Friendship>();
+		
 
 	public User(Long id, String name, String surname, String email, String password, String address, String phoneNmbr,
 			boolean verified) {
@@ -115,6 +125,22 @@ public class User {
 
 	public void setVerified(boolean verified) {
 		this.verified = verified;
+	}
+
+	public Set<Friendship> getFriendship() {
+		return friendship;
+	}
+
+	public void setFriendship(Set<Friendship> friendship) {
+		this.friendship = friendship;
+	}
+
+	public Set<Friendship> getFriendshipReceiver() {
+		return friendshipReceiver;
+	}
+
+	public void setFriendshipReceiver(Set<Friendship> friendshipReceiver) {
+		this.friendshipReceiver = friendshipReceiver;
 	}
 	
 	

@@ -7,4 +7,7 @@ export class User {
     city: string;
     phoneNmbr: string;
     verified: boolean; 
+    friends: Array<User>;
+    pending: Array<User>;
+    suggested: Array<User>;
   }

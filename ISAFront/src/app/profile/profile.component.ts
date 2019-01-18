@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProfileService } from '../services/profile.service';
 import { ActivatedRoute } from '@angular/router';
 import { User } from '../model/User';
+import { FriendshipService } from '../services/friendship.service';
 
 
 @Component({
@@ -15,7 +16,7 @@ export class ProfileComponent implements OnInit {
   user:User = new User();
   profile_show:boolean = true;
   friends_show:boolean = false;
-  constructor(private profileService:ProfileService, private router:ActivatedRoute) { }
+  constructor(private profileService:ProfileService, private router:ActivatedRoute, private friendshipService:FriendshipService) { }
 
   show_friends(){
     this.profile_show = false;
@@ -31,6 +32,16 @@ export class ProfileComponent implements OnInit {
     this.id = this.router.snapshot.params.id;
     this.profileService.getUserById(this.id).subscribe(shke=>{
       this.user = shke;
+      this.friendshipService.getFriends(this.user.id).subscribe(data=>{
+        this.user.friends = data;        
+      });
+      this.friendshipService.getPendingRequests(this.user.id).subscribe(data=>{
+        this.user.pending = data;       
+      });
+      this.friendshipService.getSuggestedFriends(this.user.id).subscribe(data=>{
+        this.user.suggested = data;       
+      });
+
     },error=>{
       console.log(error);
     });
