@@ -45,16 +45,15 @@ public class FriendshipServiceImpl implements FriendshipService {
 		List<User> listaprijatelja = new ArrayList<User>();
 		for(Friendship one_friendship : friendships) { 
 			if(one_friendship.getStatus().equals(FriendshipStatus.PENDING)) {
-				if(one_friendship.getReceiver().equals(user)) { //ako je logovan poslao
+				if(one_friendship.getReceiver().equals(user)) { 
 					listaprijatelja.add(one_friendship.getSender());
-					//STAVITI DA SE VIDI PENDING I KOD SENDERA????
 				}
 				
 			}
 			
 		}
 		
-		return listaprijatelja; //lista svih prijatelja korisnika sa {id}
+		return listaprijatelja; 
 	}
 
 	@Override
@@ -122,7 +121,6 @@ public class FriendshipServiceImpl implements FriendshipService {
 						&& one_friendship.getSender().equals(user_sender)) { 
 
 					one_friendship.setStatus(FriendshipStatus.DECLINED);
-					System.out.println("declin");
 					save(one_friendship);
 									
 					}
@@ -135,8 +133,6 @@ public class FriendshipServiceImpl implements FriendshipService {
 	@Override
 	public void deleteFriend(User deletedFriend, User userOwner) {
 		// TODO Auto-generated method stub
-		System.out.println(deletedFriend.getName() + " FUDJOH?");
-		System.out.println(userOwner.getName() + " OUDJOH?");
 		List<Friendship> friendships = friendshipRepository.findAll();
 		for(Friendship one_friendship : friendships) { 
 			if(one_friendship.getStatus().equals(FriendshipStatus.ACCEPT)) {
@@ -165,33 +161,6 @@ public class FriendshipServiceImpl implements FriendshipService {
 		List<User> pendings = getFriendshipsPending(user);
 		List<Friendship> friendships = friendshipRepository.findAll();
 		List<User> friends = getFriends(user);
- //		for(User one_user : listaKorisnika) {
-//			for(Friendship one_friendship : friendships) {
-//				if(one_friendship.getReceiver().equals(one_user) 
-//						|| one_friendship.getSender().equals(one_user)) {
-//					if(one_friendship.getStatus().equals(FriendshipStatus.DECLINED)) {
-//						if(one_user != user) {
-//							listaSuggested.add(one_user);
-//						}
-//						
-//					}
-//				}
-//				
-//			}	
-//			
-//		}
-//		for(User one_user : listaKorisnika) {
-//			for(Friendship one_friendship : friendships) {
-//				if(!(one_friendship.getReceiver().equals(one_user) 
-//						&& one_friendship.getSender().equals(one_user))) {
-//						if(one_user != user) {
-//							listaSuggested.add(one_user);
-//						}						
-//				}
-//				
-//			}	
-//			
-//		}
 		for(User one_user : listaKorisnika) {
 			if(!friends.contains(one_user) && !pendings.contains(one_user)) {
 				if(one_user != user) {
@@ -200,9 +169,7 @@ public class FriendshipServiceImpl implements FriendshipService {
 				
 			}
 		}
-		
-	
-		
+					
 		return listaSuggested;
 	}
 	

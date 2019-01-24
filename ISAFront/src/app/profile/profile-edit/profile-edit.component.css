@@ -1,0 +1,16 @@
+h1{
+    margin-left: 20px; 
+}
+
+form{
+    margin-left: 35px;
+}
+
+.divic{
+    border: 0.5px solid rgb(238, 238, 238);
+    border-radius: 10px;
+}
+
+input{
+    width: 800px;
+}
