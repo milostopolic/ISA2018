@@ -39,6 +39,8 @@ insert into destination(airline_id, name) values (2, "Nis");
 insert into flight(id, departure_place, destination, take_off_date, take_off_time, land_date, land_time, distance, airline_id, price) values (1, "Beograd", "London", "2018-12-22", "12:00", "2018-12-22", "16:00", 670, 1, 300);
 insert into flight(id, departure_place, destination, take_off_date, take_off_time, land_date, land_time, distance, airline_id, price) values (2, "Beograd", "Madrid", "2018-12-23", "12:00", "2018-12-23", "16:00", 1790, 1, 800);
 insert into flight(id, departure_place, destination, take_off_date, take_off_time, land_date, land_time, distance, airline_id, price) values (3, "Dubai", "New York", "2018-12-22", "12:00", "2018-12-23", "16:00", 7090, 2, 1480);
+insert into flight(id, departure_place, destination, take_off_date, take_off_time, land_date, land_time, distance, airline_id, price) values (4, "Beograd", "Madrid", "2018-12-23", "12:00", "2018-12-23", "16:00", 1200, 2, 1200);
+
 insert into stop(name, flight_id) values ("Paris", 3);
 insert into stop(name, flight_id) values ("Lisabon", 3);
 

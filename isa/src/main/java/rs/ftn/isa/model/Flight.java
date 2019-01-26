@@ -2,7 +2,6 @@ package rs.ftn.isa.model;
 
 
 
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CollectionTable;
@@ -30,17 +29,17 @@ public class Flight {
 	@Column
 	private String destination;
 	
-	@Temporal(TemporalType.DATE)	// MOZDA CE SE MENJATI U CALENDAR
-	private Date takeOffDate;
+	@Column	// MOZDA CE SE MENJATI U CALENDAR
+	private String takeOffDate;
 	
-	@Temporal(TemporalType.TIME)
-	private Date takeOffTime;
+	@Column
+	private String takeOffTime;
 	
-	@Temporal(TemporalType.DATE)
-	private Date landDate;
+	@Column
+	private String landDate;
 	
-	@Temporal(TemporalType.TIME)
-	private Date landTime;
+	@Column
+	private String landTime;
 	
 	@Column
 	private float distance;
@@ -54,15 +53,15 @@ public class Flight {
 	@Column
 	private float price;
 	
-	public Flight(Long id,String departurePlace, String destination, Date takeOffDate, Date takeOffTime, Date landDate, Date landTime, float distance,
+	public Flight(Long id,String departurePlace, String destination, String takeOffString, String takeOffTime, String landString, String landTime, float distance,
 			List<Stop> stops, Airline airline, float price) {
 		super();
 		this.id = id;
 		this.departurePlace = departurePlace;
 		this.destination = destination;
-		this.takeOffDate = takeOffDate;
+		this.takeOffDate = takeOffString;
 		this.takeOffTime = takeOffTime;
-		this.landDate = landDate;
+		this.landDate = landString;
 		this.landTime = landTime;
 		this.distance = distance;
 		this.stops = stops;
@@ -86,35 +85,35 @@ public class Flight {
 		this.id = id;
 	}
 
-	public Date getTakeOffDate() {
+	public String getTakeOffDate() {
 		return takeOffDate;
 	}
 
-	public void setTakeOffDate(Date takeOffDate) {
+	public void setTakeOffDate(String takeOffDate) {
 		this.takeOffDate = takeOffDate;
 	}
 
-	public Date getTakeOffTime() {
+	public String getTakeOffTime() {
 		return takeOffTime;
 	}
 
-	public void setTakeOffTime(Date takeOffTime) {
+	public void setTakeOffTime(String takeOffTime) {
 		this.takeOffTime = takeOffTime;
 	}
 
-	public Date getLandDate() {
+	public String getLandDate() {
 		return landDate;
 	}
 
-	public void setLandDate(Date landDate) {
-		this.landDate = landDate;
+	public void setLandDate(String landString) {
+		this.landDate = landString;
 	}
 
-	public Date getLandTime() {
+	public String getLandTime() {
 		return landTime;
 	}
 
-	public void setLandTime(Date landTime) {
+	public void setLandTime(String landTime) {
 		this.landTime = landTime;
 	}
 

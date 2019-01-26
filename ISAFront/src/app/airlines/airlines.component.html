@@ -1,3 +1,41 @@
+<div class="container">
+    <div class="tag">
+  
+      <mat-form-field class="example-full-width" style="float:left; margin-left: 30px">
+          <input matInput placeholder="From" [(ngModel)]="flightSearch.departurePlace">
+        </mat-form-field>
+  
+      <mat-form-field class="example-full-width" style="float:left; margin-left: 20px">
+          <input matInput placeholder="To" [(ngModel)]="flightSearch.destination">
+        </mat-form-field>
+  
+        <mat-form-field class="example-full-width" style="float:left; margin-left: 20px">
+          <input matInput [matDatepicker]="picker3" placeholder="Departing" [(ngModel)]="flightSearch.takeOffDate">
+          <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+          <mat-datepicker #picker3></mat-datepicker>
+        </mat-form-field>
+  
+      <mat-form-field class="example-full-width" style="float:left; margin-left: 20px">
+        <input matInput [matDatepicker]="picker2" placeholder="Returning" [(ngModel)]="flightSearch.landDate">
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+      </mat-form-field>
+  
+      <button mat-raised-button color="primary" style="margin-left: 30px; margin-top: 10px" (click)="SearchFlights()" >Search</button>
+  </div>
+  <img class="img_top" src="https://www.freegreatpicture.com/files/photo99/49456-aircraft.jpg"/>
+</div>
+
+
+
+<div *ngFor="let f of searchedFlights">
+  <h1>{{f.price}}</h1>
+
+</div>
+
+
+<br/>
+<br/>
 <mat-card *ngFor="let airline of airlines" class="example-card" style="margin-top:30px;margin-bottom:30px">
   <mat-card-header>        
     <mat-card-title style="margin-top:5px">{{ airline.name }}</mat-card-title>        

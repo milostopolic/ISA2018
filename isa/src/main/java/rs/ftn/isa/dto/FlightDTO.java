@@ -1,7 +1,6 @@
 package rs.ftn.isa.dto;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import rs.ftn.isa.model.Flight;
@@ -15,13 +14,13 @@ public class FlightDTO {
 	
 	private String destination;
 	
-	private Date takeOffDate;
+	private String takeOffDate;
 	
-	private Date takeOffTime;
+	private String takeOffTime;
 	
-	private Date landDate;
+	private String landDate;
 	
-	private Date landTime;
+	private String landTime;
 	
 	private float distance;
 	
@@ -78,35 +77,35 @@ public class FlightDTO {
 		this.destination = destination;
 	}
 
-	public Date getTakeOffDate() {
+	public String getTakeOffDate() {
 		return takeOffDate;
 	}
 
-	public void setTakeOffDate(Date takeOffDate) {
-		this.takeOffDate = takeOffDate;
+	public void setTakeOffDate(String takeOffString) {
+		this.takeOffDate = takeOffString;
 	}
 
-	public Date getTakeOffTime() {
+	public String getTakeOffTime() {
 		return takeOffTime;
 	}
 
-	public void setTakeOffTime(Date takeOffTime) {
+	public void setTakeOffTime(String takeOffTime) {
 		this.takeOffTime = takeOffTime;
 	}
 
-	public Date getLandDate() {
+	public String getLandDate() {
 		return landDate;
 	}
 
-	public void setLandDate(Date landDate) {
-		this.landDate = landDate;
+	public void setLandDate(String landString) {
+		this.landDate = landString;
 	}
 
-	public Date getLandTime() {
+	public String getLandTime() {
 		return landTime;
 	}
 
-	public void setLandTime(Date landTime) {
+	public void setLandTime(String landTime) {
 		this.landTime = landTime;
 	}
 

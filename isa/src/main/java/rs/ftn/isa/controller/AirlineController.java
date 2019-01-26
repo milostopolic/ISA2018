@@ -24,6 +24,7 @@ import rs.ftn.isa.model.Destination;
 import rs.ftn.isa.model.Flight;
 import rs.ftn.isa.model.Stop;
 import rs.ftn.isa.model.User;
+import rs.ftn.isa.repository.FlightRepository;
 import rs.ftn.isa.service.AirlineService;
 import rs.ftn.isa.service.DestinationService;
 import rs.ftn.isa.service.FlightService;
@@ -45,6 +46,9 @@ public class AirlineController {
 	
 	@Autowired
 	private StopService stopService;
+	
+	@Autowired
+	private FlightRepository flightRepository;
 	
 	@RequestMapping("/{id}")
 	public ResponseEntity<AirlineDTO> getAirlineById(@PathVariable Long id) {
@@ -191,6 +195,26 @@ public class AirlineController {
 			return null;
 		}
 	}
+	
+					/* FLIGHT CONTROLLER SEARCH */
+	
+	@RequestMapping(value="/searchFlights", method=RequestMethod.POST)
+	public ResponseEntity<List<FlightDTO>> searchFlights(@RequestBody FlightDTO flightDTO){
+		String departurePlace = flightDTO.getDeparturePlace();
+		String destination = flightDTO.getDestination();
+		String takeOffDate = flightDTO.getTakeOffDate();
+		String landDate = flightDTO.getLandDate();
+		System.out.println(departurePlace + " 1111111");
+		System.out.println(destination);
+		System.out.println(takeOffDate + " TAKE OFF DATE");
+		System.out.println(landDate + " LAND DATE");
+		List<FlightDTO> fligDTO = new ArrayList<>();
+		for(Flight f : flightRepository.findByDeparturePlaceAndDestinationAndTakeOffDateAndLandDate(departurePlace, destination, takeOffDate, landDate)) {
+			fligDTO.add(new FlightDTO(f));
+		}
 		
+		return new ResponseEntity<List<FlightDTO>>(fligDTO, HttpStatus.OK);
+		
+	}
 
 }

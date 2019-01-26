@@ -1,6 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router'
+import { RouterModule, Routes } from '@angular/router';
+import {MatNativeDateModule, DateAdapter, MAT_DATE_FORMATS} from '@angular/material';
+import {MatMomentDateModule, MAT_MOMENT_DATE_ADAPTER_OPTIONS, MAT_MOMENT_DATE_FORMATS} from '@angular/material-moment-adapter';
+import { MomentDateAdapter } from '@angular/material-moment-adapter';
+import { Moment } from 'moment';
+import * as moment from 'moment';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './modules/material.module';
@@ -34,6 +39,9 @@ import { HotelAdditionalServicesComponent } from './hotels-edit/hotel-additional
 import { DatePipe } from '@angular/common';
 import { FriendshipComponent } from './model/friendship/friendship.component';
 import { NgAisModule } from 'angular-instantsearch';
+import { Filter_friends_pipe } from './profile/profile-friends/filter_friends/filter_friends.pipe';
+import { MAT_DATE_LOCALE } from '@angular/material';
+import { MomentUtcDateAdapter } from './date/MomentUtcDateAdapter';
 
 const appRoutes: Routes = [
   { path: 'profile/:id', component: ProfileComponent },
@@ -71,7 +79,8 @@ const appRoutes: Routes = [
     HotelUpdateComponent,
     HotelRoomsComponent,
     HotelAdditionalServicesComponent,
-    FriendshipComponent,       
+    FriendshipComponent,     
+    Filter_friends_pipe,  
   ],
   imports: [
     BrowserModule,
@@ -86,7 +95,7 @@ const appRoutes: Routes = [
     ),
     NgAisModule.forRoot()
   ],
-  providers: [ProfileService, HotelService, AirlineService, RentacarService, DatePipe],
+  providers: [ProfileService, HotelService, AirlineService, RentacarService, DatePipe, {provide : MAT_DATE_LOCALE,useValue:'en-GB'},{provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS}, { provide: DateAdapter, useClass: MomentUtcDateAdapter } ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

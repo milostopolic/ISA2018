@@ -16,6 +16,7 @@ export class ProfileFriendsComponent implements OnInit {
   friends_list:User[] = [];
   pending_list:User[] = [];
   suggested_list:User[] = [];
+  typed : string = "";
 
   constructor(private friendshipService:FriendshipService, private router:ActivatedRoute) { }
 
@@ -57,8 +58,10 @@ export class ProfileFriendsComponent implements OnInit {
   };
 
   HideSuggested(sender){
-
+    
   }
+
+
 
   ngOnInit() {
     this.id = this.router.snapshot.params.id;
