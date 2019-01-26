@@ -19,8 +19,8 @@ INSERT INTO friendship(confirm,status,receiver_id,sender_id) VALUES ('?',2,1,5);
 
 
 insert into hotel(id,name,address,description,image) values (1, "Palisad", "Zlatibor", "Lep hotel", "../../assets/img/palisad.jpg");
-insert into hotel(id,name,address,description,image) values (2, "Park", "Novi Sad", "Sajmiste", "../../assets/img/park.jpg");  
-insert into hotel(id,name,address,description,image) values (3, "Putnik", "Novi Sad", "U centru", "../../assets/img/putnik.jpg");  
+insert into hotel(id,name,address,description,image) values (2, "Park", "Novosadskog sajma 35 Novi Sad", "Sajmiste", "../../assets/img/park.jpg");  
+insert into hotel(id,name,address,description,image) values (3, "Putnik", "Ilije Ognjanovica 24 Novi Sad", "U centru", "../../assets/img/putnik.jpg");  
   
 insert into room(id, beds, price, hotel_id) values (1, 2, 40, 1);
 insert into room(id, beds, price, hotel_id) values (2, 3, 54, 1);

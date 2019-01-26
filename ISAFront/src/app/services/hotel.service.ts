@@ -22,4 +22,12 @@ export class HotelService {
   updateHotel(hotel: Hotel) : Observable<any> {
     return this.http.put('//localhost:8080/api/hotels/update/' + hotel.id, hotel);
   }
+
+  searchHotelByName(name) : Observable<any> {
+    return this.http.get('//localhost:8080/api/hotels/searchbyname/' + name);
+  }
+
+  searchHotelsByAddress(address) : Observable<any> {
+    return this.http.get('//localhost:8080/api/hotels/searchbyaddress/' + address);
+  }
 }

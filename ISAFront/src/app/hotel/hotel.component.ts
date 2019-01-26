@@ -6,6 +6,7 @@ import { Room } from 'src/app/model/Room';
 import { Pricelist } from 'src/app/model/Pricelist';
 import { Additionalservice } from 'src/app/model/Additionalservice';
 import { AdditionalserviceService } from 'src/app/services/additionalservice.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-hotel',
@@ -18,10 +19,11 @@ export class HotelComponent implements OnInit {
   hotel: Hotel = new Hotel();
   displayedColumns: string[] = ['beds', 'price', 'book'];
   dataSource: Room[];
+  address = "";
 
   additionalServices: Additionalservice[];
 
-  constructor(private hotelService:HotelService, private additionalServiceService: AdditionalserviceService, private router:ActivatedRoute) { }
+  constructor(private hotelService:HotelService, private additionalServiceService: AdditionalserviceService, private router:ActivatedRoute, private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
     this.id = this.router.snapshot.params.id;
@@ -31,6 +33,13 @@ export class HotelComponent implements OnInit {
        this.dataSource =  data.roomsDTO;
        //this.additionalServices = this.additionalServiceService.getAdditionalSevricesByPricelistId(this.hotel.pricelist.id);
        this.additionalServices = this.hotel.pricelistDTO.additionalServicesDTO;
+       
+       var address = this.hotel.address.replace(/ /g, '%20');
+
+
+       this.address += "https://maps.google.com/maps?q="+address+"&t=&z=13&ie=UTF8&iwloc=&output=embed";
+
+       console.log(address);
        console.log(this.additionalServices);
       });   
       

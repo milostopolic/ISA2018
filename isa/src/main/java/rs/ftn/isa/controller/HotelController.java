@@ -6,7 +6,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import rs.ftn.isa.dto.HotelDTO;
 import rs.ftn.isa.model.Hotel;
+import rs.ftn.isa.repository.HotelRepository;
 import rs.ftn.isa.service.HotelService;
 
 @RestController
@@ -24,6 +24,9 @@ public class HotelController {
 
 	@Autowired
 	private HotelService hotelService;
+	
+	@Autowired
+	private HotelRepository hotelRepository;
 	
 	@RequestMapping("/{id}")
 	public ResponseEntity<HotelDTO> getHotelById(@PathVariable Long id) {
@@ -70,6 +73,28 @@ public class HotelController {
 		if(oldHotel != null) {
 			Hotel newHotel = hotelService.update(oldHotel, hotel);
 			return new ResponseEntity<HotelDTO>(new HotelDTO(newHotel), HttpStatus.OK);
+		}
+		return null;
+	}
+	
+	@RequestMapping("/searchbyaddress/{criteria}")
+	public ResponseEntity<List<HotelDTO>> searchHotelsByAddress(@PathVariable String criteria) {
+		List<Hotel> hotels = hotelRepository.findByAddressContaining(criteria);
+		if(hotels != null) {
+			List<HotelDTO> hotelsDTO = new ArrayList<>();
+			for(Hotel h : hotels) {
+				hotelsDTO.add(new HotelDTO(h));
+			}
+			return new ResponseEntity<List<HotelDTO>>(hotelsDTO, HttpStatus.OK);
+		}
+		return null;
+	}
+	
+	@RequestMapping("/searchbyname/{criteria}")
+	public ResponseEntity<HotelDTO> searchHotelByName(@PathVariable String criteria) {
+		Hotel hotel = hotelRepository.findByName(criteria);
+		if(hotel != null) {
+			return new ResponseEntity<HotelDTO>(new HotelDTO(hotel), HttpStatus.OK);
 		}
 		return null;
 	}

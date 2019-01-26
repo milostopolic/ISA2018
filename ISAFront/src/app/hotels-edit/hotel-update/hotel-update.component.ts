@@ -35,9 +35,9 @@ export class HotelUpdateComponent implements OnInit {
     //this.hotelEdit.id = this.hotel.id;
     this.hotelService.updateHotel(this.hotel).subscribe(data => {
       //this.hotelEdit = data;
-      this.name.setValue(this.hotel.name);
+      /*this.name.setValue(this.hotel.name);
       this.address.setValue(this.hotel.address);
-      this.description.setValue(this.hotel.description);
+      this.description.setValue(this.hotel.description);*/
     });
     //window.location.reload();
   }
