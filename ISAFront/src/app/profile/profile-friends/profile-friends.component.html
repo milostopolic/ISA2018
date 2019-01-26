@@ -1,7 +1,10 @@
 <div id="container">
   <div id="container1">
     <h1>My friends</h1>
-    <input type="text" [(ngModel)] = "typed" placeholder="Search friends"/>
+    <div class="search_bar" style="margin-left: 20px; margin-bottom: 10px;">
+      <input type="text" [(ngModel)] = "typed" placeholder="Search friends"/>
+      <img src="/assets/img/magnifier.png" style="margin-left:5px;">
+    </div>
     <div class="table-responsive" style="overflow-x: unset !important; width: 300px;">
       <table class="table table-striped table-sm" id="tabela1">
         <thead>
