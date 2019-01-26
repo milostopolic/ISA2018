@@ -12,5 +12,6 @@ export class Flight {
     distance: number;
     stops: Array<Stop>;
     airline: Airline;
-    price: number;    
+    price: number;  
+    airline_id : number;
   }

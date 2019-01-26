@@ -16,25 +16,34 @@ export class AirlinesComponent implements OnInit {
   searchedFlights : Flight[] = [];
   takeOffDate = new FormControl('');
   landDate = new FormControl('');
+  table_show:boolean = false;
+  airlines_show:boolean = true;
 
   date = new FormControl(new Date());
 
   constructor(private airlineService : AirlineService) { }
 
+  
+
   SearchFlights(){
-    /*var temp : string = this.takeOffDate.value;
-    var temp2 : string = this.landDate.value;
-    temp = temp.slice(1, temp.length-14);
-    temp2 = temp2.slice(1, temp.length-14);
-    this.flightSearch.takeOffDate = temp;
-    this.flightSearch.landDate = temp2;*/
-    //alert(this.flightSearch.takeOffDate.toString().substr(0,15));
-    //this.flightSearch.takeOffDate = this.flightSearch.takeOffDate.toString().substr(0,14);
-    //this.flightSearch.landDate = this.flightSearch.landDate.slice(1,-this.flightSearch.landDate.length-14);
+    this.table_show = true;
+    this.airlines_show = false;
+    //if(this.flightSearch.departurePlace == "" || this.flightSearch.destination)
     this.airlineService.getSearchedFlights(this.flightSearch).subscribe(data => {
-      this.searchedFlights = data;
+    this.searchedFlights = data;
+    for(let f of this.searchedFlights){
+      f.airline = new Airline();
+      this.airlineService.getAirlineById(f.airline_id).subscribe(data=>{
+        var temp : Airline = data;
+        f.airline = temp;
+      })
+    }
     });
-    alert(this.searchedFlights.length);
+  }
+
+  Return(){
+    this.table_show = false;
+    this.airlines_show = true;
   }
 
   ngOnInit() {

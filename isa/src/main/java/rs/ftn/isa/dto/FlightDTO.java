@@ -10,6 +10,8 @@ public class FlightDTO {
 	
 	private Long id;
 	
+	private Long airline_id;
+	
 	private String departurePlace;
 	
 	private String destination;
@@ -51,6 +53,7 @@ public class FlightDTO {
 			stops.add(new StopDTO(s));
 		}
 		//this.airlineDTO = new AirlineDTO(f.getAirline());
+		this.airline_id = f.getAirline().getId();
 	}
 
 	public Long getId() {
@@ -131,6 +134,14 @@ public class FlightDTO {
 
 	public void setStops(List<StopDTO> stops) {
 		this.stops = stops;
+	}
+
+	public Long getAirline_id() {
+		return airline_id;
+	}
+
+	public void setAirline_id(Long airline_id) {
+		this.airline_id = airline_id;
 	}
 
 	/*public AirlineDTO getAirlineDTO() {

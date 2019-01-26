@@ -60,7 +60,6 @@ export class AirlineService {
   }
 
   getSearchedFlights(flight : Flight) : Observable<any> {
-    alert(flight.destination);
     return this.http.post('//localhost:8080/api/airlines/searchFlights', flight);
   }
 

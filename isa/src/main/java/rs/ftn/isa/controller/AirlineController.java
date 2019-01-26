@@ -202,8 +202,8 @@ public class AirlineController {
 	public ResponseEntity<List<FlightDTO>> searchFlights(@RequestBody FlightDTO flightDTO){
 		String departurePlace = flightDTO.getDeparturePlace();
 		String destination = flightDTO.getDestination();
-		String takeOffDate = flightDTO.getTakeOffDate();
-		String landDate = flightDTO.getLandDate();
+		String takeOffDate = flightDTO.getTakeOffDate().substring(0,10);
+		String landDate = flightDTO.getLandDate().substring(0, 10);
 		System.out.println(departurePlace + " 1111111");
 		System.out.println(destination);
 		System.out.println(takeOffDate + " TAKE OFF DATE");
