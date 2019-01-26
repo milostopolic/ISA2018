@@ -1,11 +1,11 @@
-insert into user(id,name,surname,email,password,address,phone_nmbr,verified) values (1, "Pera", "Peric", "asds@gmail.com", "pass", "novi asd", "0213231", false); 
-insert into user(id,name,surname,email,password,address,phone_nmbr,verified) values (2, "Mika", "Mikic", "asds@gmail.com", "pass", "novi asd", "0213231", false); 
-insert into user(id,name,surname,email,password,address,phone_nmbr,verified) values (3, "Zika", "Zikic", "asds@gmail.com", "pass", "novi asd", "0213231", false); 
-insert into user(id,name,surname,email,password,address,phone_nmbr,verified) values (4, "Pare", "Paric", "asds@gmail.com", "pass", "novi asd", "0213231", false);
-insert into user(id,name,surname,email,password,address,phone_nmbr,verified) values (5, "Pupe", "Pupic", "asds@gmail.com", "pass", "novi asd", "0213231", false); 
-insert into user(id,name,surname,email,password,address,phone_nmbr,verified) values (6, "Milan", "Milic", "asds@gmail.com", "pass", "novi asd", "0213231", false); 
-insert into user(id,name,surname,email,password,address,phone_nmbr,verified) values (7, "Zare", "Zarkovic", "asds@gmail.com", "pass", "novi asd", "0213231", false); 
-insert into user(id,name,surname,email,password,address,phone_nmbr,verified) values (8, "Mila", "Milic", "asds@gmail.com", "pass", "novi asd", "0213231", false);
+insert into user(id,name,surname,email,password,address,phone_nmbr,verified) values (1, "Veljko", "Petrovic", "vpetrovic@gmail.com", "pass", "Novi Sad", "021323221", false); 
+insert into user(id,name,surname,email,password,address,phone_nmbr,verified) values (2, "Stefan", "Stefanovic", "stefans@gmail.com", "pass", "Beocin", "021521151", false); 
+insert into user(id,name,surname,email,password,address,phone_nmbr,verified) values (3, "Branko", "Markovic", "brankomarkovic@gmail.com", "pass", "Beograd", "021236235", false); 
+insert into user(id,name,surname,email,password,address,phone_nmbr,verified) values (4, "Mila", "Lukic", "milamila@gmail.com", "pass", "Subotica", "021325312", false);
+insert into user(id,name,surname,email,password,address,phone_nmbr,verified) values (5, "Stanislava", "Loncar", "stanislaval@gmail.com", "pass", "Pancevo", "021534231", false); 
+insert into user(id,name,surname,email,password,address,phone_nmbr,verified) values (6, "Milan", "Vujosevic", "milanvuj123@gmail.com", "pass", "Titel", "021732331", false); 
+insert into user(id,name,surname,email,password,address,phone_nmbr,verified) values (7, "Ana", "Vlahovic", "anavlahovic99@gmail.com", "pass", "Novi Sad", "021632231", false); 
+insert into user(id,name,surname,email,password,address,phone_nmbr,verified) values (8, "Pavle", "Jankovic", "pavlej233@gmail.com", "pass", "Becej", "021532321", false);
 
 
 INSERT INTO friendship(confirm,status,receiver_id,sender_id) VALUES ('?',0,1,2);
@@ -39,6 +39,8 @@ insert into destination(airline_id, name) values (2, "Nis");
 insert into flight(id, departure_place, destination, take_off_date, take_off_time, land_date, land_time, distance, airline_id, price) values (1, "Beograd", "London", "2018-12-22", "12:00", "2018-12-22", "16:00", 670, 1, 300);
 insert into flight(id, departure_place, destination, take_off_date, take_off_time, land_date, land_time, distance, airline_id, price) values (2, "Beograd", "Madrid", "2018-12-23", "12:00", "2018-12-23", "16:00", 1790, 1, 800);
 insert into flight(id, departure_place, destination, take_off_date, take_off_time, land_date, land_time, distance, airline_id, price) values (3, "Dubai", "New York", "2018-12-22", "12:00", "2018-12-23", "16:00", 7090, 2, 1480);
+insert into flight(id, departure_place, destination, take_off_date, take_off_time, land_date, land_time, distance, airline_id, price) values (4, "Beograd", "Madrid", "2018-12-23", "12:00", "2018-12-23", "16:00", 1200, 2, 1200);
+
 insert into stop(name, flight_id) values ("Paris", 3);
 insert into stop(name, flight_id) values ("Lisabon", 3);
 

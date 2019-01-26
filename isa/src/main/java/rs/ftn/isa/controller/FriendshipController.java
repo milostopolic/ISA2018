@@ -37,14 +37,11 @@ public class FriendshipController {
 			User sender = userService.getOne(one_friendship.getSender().getId());
 			User receiver = userService.getOne(one_friendship.getReceiver().getId());
 			
-			System.out.println(sender.getName()
-					+" je poslao zahtev ovom-> " + receiver.getName() +
-					" i taj zahtev ima status " + one_friendship.getStatus());
+			System.out.println(sender.getName()	+" je poslao zahtev " + receiver.getName() + " sa statusom " + one_friendship.getStatus());
 		}
-		return "nesto";
+		return "uspesno";
 	}
 	
-	//test metoda za slanje prijateljstva
 		@RequestMapping(value="/sendRequest/{senderID}/{receiverID}",method = RequestMethod.GET)
 		public ResponseEntity<?> sendFriendrequest(@PathVariable Long receiverID, 
 				@PathVariable Long senderID){
@@ -152,6 +149,21 @@ public class FriendshipController {
 			}
 				
 		}
+		
+		/*@RequestMapping(value="/delete/{receiver_id}/{sender_id}",method = RequestMethod.DELETE)
+		public ResponseEntity<?> deleteSuggested(@PathVariable Long receiver_id,
+				@PathVariable Long sender_id) {
+
+			User sender = userService.getOne(sender_id);
+			User receiver = userService.getOne(receiver_id);
+
+			if(sender != null && receiver != null) {
+				friendshipService.deleteSuggested(sender, receiver);
+				return new ResponseEntity<>(HttpStatus.OK);
+			} else {
+				return null;
+			}			
+		}*/
 		
 	
 }
