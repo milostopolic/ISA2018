@@ -28,12 +28,12 @@ export class AirlinesComponent implements OnInit {
   SearchFlights(){
     this.table_show = true;
     this.airlines_show = false;
-    //if(this.flightSearch.departurePlace == "" || this.flightSearch.destination)
+    //if(this.flightSearch.departurePlace == "" || this.flightSearch.destination == "" || this.flightSearch.takeOffDate == "" || this.flightSearch.landDate == ""){}
     this.airlineService.getSearchedFlights(this.flightSearch).subscribe(data => {
     this.searchedFlights = data;
     for(let f of this.searchedFlights){
       f.airline = new Airline();
-      this.airlineService.getAirlineById(f.airline_id).subscribe(data=>{
+      this.airlineService.getAirlineById(f.airline_id).subscribe(data=>{  //za ispis imena aviokompanije
         var temp : Airline = data;
         f.airline = temp;
       })

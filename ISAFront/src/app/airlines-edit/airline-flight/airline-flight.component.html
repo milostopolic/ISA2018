@@ -39,55 +39,71 @@
   <!-- Modal add -->
 <div *ngIf="flag" class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle">
   <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
+    <div class="modal-content" style="width: 300px; max-height: 900px;overflow-y: auto">
       <div class="modal-header" style="border-bottom: none !important;">
         <h5 style="float:left !important;margin-left: -10px !important; margin-top: -10px !important;">Add flight</h5>
         <button style="text-align: right;" type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body" style="margin-left: 50px; ">
         <form class="formaGore">                             
           <div class="form-group row">
             <label for="name" class="col-4 col-form-label">Departure place:</label> 
             <div class="col-8">
-              <input id="name" name="name" [formControl]="departurePlace" class="form-control here" type="text">
+              <mat-form-field class="example-full-width">
+                <input matInput required [formControl]="departurePlace">
+              </mat-form-field>
             </div>
           </div>
           <div class="form-group row">
             <label for="name" class="col-4 col-form-label">Destination name:</label> 
             <div class="col-8">
-              <input id="name" name="name" [formControl]="destination" class="form-control here" type="text">
+              <mat-form-field class="example-full-width">
+                <input required matInput [formControl]="destination">
+              </mat-form-field>
             </div>
           </div>
           <div class="form-group row">
             <label for="name" class="col-4 col-form-label">Take off date:</label> 
             <div class="col-8">
-              <input id="name" name="name" [formControl]="takeOffDate" class="form-control here" type="text">
+              <mat-form-field class="example-full-width">
+                <input matInput required [matDatepicker]="picker3" [formControl]="takeOffDate">
+                <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+                <mat-datepicker #picker3></mat-datepicker>
+              </mat-form-field>
             </div>
           </div>
           <div class="form-group row">
             <label for="name" class="col-4 col-form-label">Take off time:</label> 
             <div class="col-8">
-              <input id="name" name="name" [formControl]="takeOffTime" class="form-control here" type="text">
+              <input [ngxTimepicker]="picker1" required [formControl]="takeOffTime">
+              <ngx-material-timepicker #picker1></ngx-material-timepicker>
             </div>
           </div>
           <div class="form-group row">
             <label for="name" class="col-4 col-form-label">Land date:</label> 
             <div class="col-8">
-              <input id="name" name="name" [formControl]="landDate" class="form-control here" type="text">
+              <mat-form-field class="example-full-width">
+                <input matInput [matDatepicker]="picker2" required [formControl]="landDate">
+                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                <mat-datepicker #picker2></mat-datepicker>
+              </mat-form-field>
             </div>
           </div>
           <div class="form-group row">
             <label for="name" class="col-4 col-form-label">Land time:</label> 
             <div class="col-8">
-              <input id="name" name="name" [formControl]="landTime" class="form-control here" type="text">
+              <input [ngxTimepicker]="picker" required [formControl]="landTime">
+              <ngx-material-timepicker #picker></ngx-material-timepicker>
             </div>
           </div>
           <div class="form-group row">
             <label for="name" class="col-4 col-form-label">Distance:</label> 
             <div class="col-8">
-              <input id="name" name="name" [formControl]="distance" class="form-control here" type="text">
+              <mat-form-field class="example-full-width">
+                <input matInput [formControl]="distance" required>
+              </mat-form-field>
             </div>
           </div>
           <div class="form-group row">
@@ -99,14 +115,16 @@
           <div class="form-group row">
             <label for="name" class="col-4 col-form-label">Price:</label> 
             <div class="col-8">
-              <input id="name" name="name" [formControl]="price" class="form-control here" type="text">
+              <mat-form-field class="example-full-width">
+                <input matInput [formControl]="price" required>
+              </mat-form-field>
             </div>
           </div>                                       
         </form>
       </div>
-      <div class="modal-footer" style="border-top: none !important;">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" (click)="saveChanges()" class="btn btn-primary" data-dismiss="modal">Add</button>
+      <div class="modal-footer" style="border-top: none !important; ">
+        <button type="button" style="margin-right: 60px;" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button (click)="saveChanges()" style="margin-right: 30px;"  mat-raised-button data-toggle="modal" data-dismiss="modal" color="primary">Add</button>
       </div>
     </div>
   </div>
@@ -115,55 +133,71 @@
  <!-- Modal edit -->
  <div class="modal fade" id="exampleModalCenterEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle">
     <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
+      <div class="modal-content" style="width: 300px; max-height: 900px;overflow-y: auto">
         <div class="modal-header" style="border-bottom: none !important;">
-          <h5 style="float:left !important;margin-left: -10px !important; margin-top: -10px !important;">Add flight</h5>
+          <h5 style="float:left !important;margin-left: -10px !important; margin-top: -10px !important;">Edit flight</h5>
           <button style="text-align: right;" type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body">
+        <div class="modal-body" style="margin-left: 50px; ">
           <form class="formaGore">                             
             <div class="form-group row">
               <label for="name" class="col-4 col-form-label">Departure place:</label> 
               <div class="col-8">
-                <input id="name" name="name" [formControl]="departurePlace" class="form-control here" type="text">
+                <mat-form-field class="example-full-width">
+                  <input matInput required [formControl]="departurePlace">
+                </mat-form-field>
               </div>
             </div>
             <div class="form-group row">
               <label for="name" class="col-4 col-form-label">Destination name:</label> 
               <div class="col-8">
-                <input id="name" name="name" [formControl]="destination" class="form-control here" type="text">
+                <mat-form-field class="example-full-width">
+                  <input required matInput [formControl]="destination">
+                </mat-form-field>
               </div>
             </div>
             <div class="form-group row">
               <label for="name" class="col-4 col-form-label">Take off date:</label> 
               <div class="col-8">
-                <input id="name" name="name" [formControl]="takeOffDate" class="form-control here" type="text">
+                <mat-form-field class="example-full-width">
+                  <input matInput required [matDatepicker]="picker3" [formControl]="takeOffDate">
+                  <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+                  <mat-datepicker #picker3></mat-datepicker>
+                </mat-form-field>
               </div>
             </div>
             <div class="form-group row">
               <label for="name" class="col-4 col-form-label">Take off time:</label> 
               <div class="col-8">
-                <input id="name" name="name" [formControl]="takeOffTime" class="form-control here" type="text">
+                <input [ngxTimepicker]="picker1" required [formControl]="takeOffTime">
+                <ngx-material-timepicker #picker1></ngx-material-timepicker>
               </div>
             </div>
             <div class="form-group row">
               <label for="name" class="col-4 col-form-label">Land date:</label> 
               <div class="col-8">
-                <input id="name" name="name" [formControl]="landDate" class="form-control here" type="text">
+                <mat-form-field class="example-full-width">
+                  <input matInput [matDatepicker]="picker2" required [formControl]="landDate">
+                  <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                  <mat-datepicker #picker2></mat-datepicker>
+                </mat-form-field>
               </div>
             </div>
             <div class="form-group row">
               <label for="name" class="col-4 col-form-label">Land time:</label> 
               <div class="col-8">
-                <input id="name" name="name" [formControl]="landTime" class="form-control here" type="text">
+                <input [ngxTimepicker]="picker" required [formControl]="landTime">
+                <ngx-material-timepicker #picker></ngx-material-timepicker>
               </div>
             </div>
             <div class="form-group row">
               <label for="name" class="col-4 col-form-label">Distance:</label> 
               <div class="col-8">
-                <input id="name" name="name" [formControl]="distance" class="form-control here" type="text">
+                <mat-form-field class="example-full-width">
+                  <input matInput [formControl]="distance" required>
+                </mat-form-field>
               </div>
             </div>
             <div class="form-group row">
@@ -175,14 +209,16 @@
             <div class="form-group row">
               <label for="name" class="col-4 col-form-label">Price:</label> 
               <div class="col-8">
-                <input id="name" name="name" [formControl]="price" class="form-control here" type="text">
+                <mat-form-field class="example-full-width">
+                  <input matInput [formControl]="price" required>
+                </mat-form-field>
               </div>
             </div>                                       
           </form>
         </div>
         <div class="modal-footer" style="border-top: none !important;">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" (click)="editFlight()" class="btn btn-primary" data-dismiss="modal">Add</button>
+          <button type="button" style="margin-right: 60px;" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button (click)="editFlight()" style="margin-right: 30px;"  mat-raised-button data-toggle="modal" data-dismiss="modal" color="primary">Edit</button>
         </div>
       </div>
     </div>

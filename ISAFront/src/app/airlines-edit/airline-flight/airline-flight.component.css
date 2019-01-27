@@ -42,3 +42,8 @@ h3{
   .example-margin {
     margin: 0 10px;
   }
+
+::ng-deep .cdk-overlay-container {
+    z-index: 1200 !important;
+  }
+

@@ -50,24 +50,24 @@
   <div id="container2">
     <h1>Suggested</h1>
     <div style="width: 100%;" id="tri_kartice" class="row">
-    <mat-card *ngFor="let sg of suggested_list" class="example-card">
-      <img mat-card-image src="/assets/img/user_img.png" alt="Photo of a Shiba Inu">
-      <mat-card-content>
-        <p>
-          <i>Name</i>: {{ sg.name }}
-        <br/>
-          <i>Surname</i>: {{ sg.surname }}
+      <mat-card *ngFor="let sg of suggested_list" class="example-card">
+        <img mat-card-image src="/assets/img/user_img.png" alt="Photo of a Shiba Inu">
+        <mat-card-content>
+          <p>
+            <i>Name</i>: {{ sg.name }}
           <br/>
-          <i>Email</i>: {{ sg.email }}
-          <br/>
-          <i>City</i>: {{ sg.address }}
-          <br/>
-        </p>
-      </mat-card-content>
-      <mat-card-actions>
-        <button (click)="SendRequest(sg)" class="mr-2"  mat-raised-button color="primary">Send request</button>     
-      </mat-card-actions>
-    </mat-card>
+            <i>Surname</i>: {{ sg.surname }}
+            <br/>
+            <i>Email</i>: {{ sg.email }}
+            <br/>
+            <i>City</i>: {{ sg.address }}
+            <br/>
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button (click)="SendRequest(sg)" class="mr-2"  mat-raised-button color="primary">Send request</button>     
+        </mat-card-actions>
+      </mat-card>
     </div>
   </div>
 </div>

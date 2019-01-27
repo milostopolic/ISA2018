@@ -162,9 +162,10 @@ public class AirlineController {
 			Flight flig = new Flight();
 			flig.setDeparturePlace(fligDTO.getDeparturePlace());
 			flig.setDestination(fligDTO.getDestination());
-			flig.setTakeOffDate(fligDTO.getTakeOffDate());
+			flig.setTakeOffDate(fligDTO.getTakeOffDate().substring(0, 10));
+			System.out.println(flig.getTakeOffDate() + " @22@#@#@#@#");
 			flig.setTakeOffTime(fligDTO.getTakeOffTime());
-			flig.setLandDate(fligDTO.getLandDate());
+			flig.setLandDate(fligDTO.getLandDate().substring(0, 10));
 			flig.setLandTime(fligDTO.getLandTime());
 			flig.setDistance(fligDTO.getDistance());
 			flig.setStops(new ArrayList<Stop>()); //za sad ovde ide prazna lista, treba promeniti

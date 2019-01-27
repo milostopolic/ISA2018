@@ -43,13 +43,15 @@ public class FlightServiceImpl implements FlightService {
 			oldFlight.setDestination(newFlight.getDestination());
 		}
 		if(newFlight.getTakeOffDate() != null) {
-			oldFlight.setTakeOffDate(newFlight.getTakeOffDate());
+			oldFlight.setTakeOffDate(newFlight.getTakeOffDate().substring(0, 10));
+			System.out.println(oldFlight.getTakeOffDate() + " AALDKLSKDSKDSKDSKDSKKDSKDS");
 		}
 		if(newFlight.getTakeOffTime() != null) {
 			oldFlight.setTakeOffTime(newFlight.getTakeOffTime());
 		}
 		if(newFlight.getLandDate() != null) {
-			oldFlight.setLandDate(newFlight.getLandDate());
+			oldFlight.setLandDate(newFlight.getLandDate().substring(0, 10));
+			System.out.println(oldFlight.getLandDate() + " LDKLSKDSKDSKDSKDSKKDSKDS");
 		}
 		if(newFlight.getLandTime() != null) {
 			oldFlight.setLandTime(newFlight.getLandTime());

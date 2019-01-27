@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {MatNativeDateModule, DateAdapter, MAT_DATE_FORMATS} from '@angular/material';
+import {MatNativeDateModule, DateAdapter, MAT_DATE_FORMATS, MatFormFieldModule, MatInputModule, MatAutocompleteModule} from '@angular/material';
 import {MatMomentDateModule, MAT_MOMENT_DATE_ADAPTER_OPTIONS, MAT_MOMENT_DATE_FORMATS} from '@angular/material-moment-adapter';
 import { MomentDateAdapter } from '@angular/material-moment-adapter';
 import { Moment } from 'moment';
@@ -42,6 +42,7 @@ import { NgAisModule } from 'angular-instantsearch';
 import { Filter_friends_pipe } from './profile/profile-friends/filter_friends/filter_friends.pipe';
 import { MAT_DATE_LOCALE } from '@angular/material';
 import { MomentUtcDateAdapter } from './date/MomentUtcDateAdapter';
+import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 
 const appRoutes: Routes = [
   { path: 'profile/:id', component: ProfileComponent },
@@ -89,6 +90,10 @@ const appRoutes: Routes = [
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatAutocompleteModule,
+    NgxMaterialTimepickerModule.forRoot(),
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true }
