@@ -1,0 +1,18 @@
+
+
+
+<div>
+  <label>Rent Services: </label>
+  <select (change)="selectChangeHandler($event)">
+      <option value="0">--All--</option>
+      <option *ngFor="let rentacar of rentacars" value={{rentacar.name}} >
+          {{rentacar.name}}
+      </option>
+  </select>
+</div>
+
+
+
+
+
+<app-rentacarsearch></app-rentacarsearch>

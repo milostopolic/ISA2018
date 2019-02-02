@@ -37,6 +37,9 @@ public class UserServiceImpl implements UserService{
 		if(newUser.getName() != null){
 			oldUser.setName(newUser.getName());
 		}
+		if(newUser.getUsername() != null){
+			oldUser.setUsername(newUser.getUsername());
+		}
 		if(newUser.getPhoneNmbr() != null){
 			oldUser.setPhoneNmbr(newUser.getPhoneNmbr());
 		}

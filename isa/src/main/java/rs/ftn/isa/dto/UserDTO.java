@@ -10,6 +10,8 @@ public class UserDTO {
 	
 	private String surname;
 	
+	private String username;
+	
 	private String email;
 	
 	private String password;
@@ -19,22 +21,26 @@ public class UserDTO {
 	private String phoneNmbr;
 	
 	private boolean verified;
+	
+	private String role;
 
-	public UserDTO(Long id, String name, String surname, String email, String password, String address,
-			String phoneNmbr, boolean verified) {
+	public UserDTO(Long id, String name, String surname,String username, String email, String password, String address,
+			String phoneNmbr, boolean verified,String role) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.surname = surname;
+		this.username = username;
 		this.email = email;
 		this.password = password;
 		this.address = address;
 		this.phoneNmbr = phoneNmbr;
 		this.verified = verified;
+		this.role=role;
 	}
 	
 	public UserDTO(User user) {
-		this(user.getId(), user.getName(), user.getSurname(), user.getEmail(), user.getPassword(), user.getAddress(), user.getPhoneNmbr(),user.isVerified());
+		this(user.getId(), user.getName(),user.getUsername(), user.getSurname(), user.getEmail(), user.getPassword(), user.getAddress(), user.getPhoneNmbr(),user.isVerified(),user.getRole());
 	}
 
 
@@ -45,7 +51,24 @@ public class UserDTO {
 	public Long getId() {
 		return id;
 	}
+	
+	
 
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
 
 	public void setId(Long id) {
 		this.id = id;

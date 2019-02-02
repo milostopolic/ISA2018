@@ -1,0 +1,64 @@
+<p>rentcarsearch component</p>
+
+<form>
+ 
+    <table  class="table table-striped table-responsive-md btn-table" [formGroup]='searchForm' (ngSubmit)='proveri()'>
+
+      <tr><td><label for="">Pick up location</label></td><td><label for="">drop off location</label></td></tr>
+        <tr>
+            <td class ='form-group'>
+                <input  class="form-control" type="text" name="pickUpLocation" id="pickUpLocation" formControlName="pickUpLocation">
+            </td>
+            <td class ='form-group'>
+                <input class='form-control' type="text" name="dropOffLocation" id='dropOffLocation' formControlName='dropOffLocation'>
+            </td>
+          </tr>
+          <tr><td><label for="">pick up date</label></td><td><label for="">drop off date</label></td></tr>
+      <tr>
+          <td class ='form-group'>
+              <input  class="form-control" type="date" name="pickUpDate" id="pickUpDate" formControlName="pickUpDate">
+          </td>
+          <td class ='form-group'>
+              <input class='form-control' type="date" name="dropOffDate" id='dropOffDate' formControlName='dropOffDate'>
+          </td>
+        </tr>
+        <tr><td><label for="">pick up time</label></td><td><label for="">drop off time</label></td></tr>
+        <tr>
+            <td class ='form-group'>
+                <input  class="form-control" type="time" name="pickUpTime" id="pickUpTime" formControlName="pickUpTime">
+            </td>
+            <td class ='form-group'>
+                <input class='form-control' type="time" name="dropOffTime" id='dropOffTime' formControlName='dropOffTime'>
+            </td>
+          </tr>
+          <tr>
+              <td class ='form-group'>
+                  <label for="passengers">Number of passengers:</label>
+              </td>
+              <td class ='form-group'>
+                  <input class='form-control' type="number" min='1' max='5' name="numberOfPassengers" id='numberOfPassengers' formControlName='numberOfPassengers'>
+              </td>
+            </tr>
+
+            <tr>
+                <td class='form-group'>
+                    <select class='form-control'  name="carType" id='carType' formControlName='carType'>
+                        <option value="ESTATE">ESTATE</option>
+                        <option value="HATCHBACK">HATCHBACK</option>
+                        <option value="CARAVAN">CARAVAN</option>
+                        
+                      </select>
+                </td>
+                <td>
+                    <button type="submit" class='btn btn-default' (click)='proveri()'>submit </button> 
+  
+                </td>
+              </tr>
+
+    </table>
+  
+  </form>
+
+  
+ 
+    

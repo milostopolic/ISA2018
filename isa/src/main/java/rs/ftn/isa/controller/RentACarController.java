@@ -33,6 +33,32 @@ public class RentACarController {
 		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	}
 	
+	
+	
+	
+	
+	@RequestMapping("/filter/{name}")
+	public ResponseEntity<List<RentACarDTO>>  rentSearchFilter(@PathVariable String name) {
+		List<RentACar> rentACars = rentACarService.getAll();
+		if(rentACars != null) {
+			List<RentACarDTO> rentACarsDTO = new ArrayList<RentACarDTO>();
+			for(RentACar r : rentACars) {
+				if(r.getName().contains("name")) {
+				rentACarsDTO.add(new RentACarDTO(r));
+				}
+			}
+			return new ResponseEntity<List<RentACarDTO>>(rentACarsDTO, HttpStatus.OK);
+		}
+		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 	@RequestMapping("/all")
 	public ResponseEntity<List<RentACarDTO>> getAll() {
 		List<RentACar> rentACars = rentACarService.getAll();

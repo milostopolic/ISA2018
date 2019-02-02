@@ -43,6 +43,11 @@ import { Filter_friends_pipe } from './profile/profile-friends/filter_friends/fi
 import { MAT_DATE_LOCALE } from '@angular/material';
 import { MomentUtcDateAdapter } from './date/MomentUtcDateAdapter';
 import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+import { LoginComponent } from './login/login.component';
+import { SingUpComponent } from './sing-up/sing-up.component';
+import { RentAdminComponent } from './rent-admin/rent-admin.component';
+import { RentacarreservationComponent } from './rentacarreservation/rentacarreservation.component';
+import { RentacarsearchComponent } from './rentacarreservation/rentacarsearch/rentacarsearch.component';
 
 const appRoutes: Routes = [
   { path: 'profile/:id', component: ProfileComponent },
@@ -55,7 +60,11 @@ const appRoutes: Routes = [
   { path: 'airlines/:id', component: AirlineComponent },
   { path: 'rentacars', component: RentacarsComponent },
   { path: 'airlines/admin/:id', component: AirlinesEditComponent},
-  { path: 'rentacars/:id', component: RentacarComponent }
+  { path: 'rentacars/:id', component: RentacarComponent },
+  { path: 'login', component: LoginComponent},
+  { path: 'signup', component: SingUpComponent},
+  { path: 'rentAdmin',component: RentAdminComponent},
+  { path: 'rentReservation' , component : RentacarreservationComponent}
 ];
 
 @NgModule({
@@ -81,7 +90,7 @@ const appRoutes: Routes = [
     HotelRoomsComponent,
     HotelAdditionalServicesComponent,
     FriendshipComponent,     
-    Filter_friends_pipe,  
+    Filter_friends_pipe, LoginComponent, SingUpComponent, RentAdminComponent, RentacarreservationComponent, RentacarsearchComponent,  
   ],
   imports: [
     BrowserModule,
